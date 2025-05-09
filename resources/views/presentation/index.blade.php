@@ -6,6 +6,31 @@
     <title>Smart Telecon</title>
 </head>
 <body>
-    <h1>ola mundo</h1>
+    <header>
+
+        <img src="#" alt="emprise logo">
+
+        <nav>
+
+        </nav>
+
+        <div class="theme-and-contact">
+            
+            <button class="theme" name="theme">sol</button>
+
+            <button class="contact-button" name="contact-button">conta-te nos</button>
+
+        </div>
+
+    </header>
+
+    <main>
+
+    </main>
+
+    <footer>
+
+    </footer>
+    
 </body>
 </html>
