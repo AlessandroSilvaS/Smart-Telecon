@@ -1,0 +1,46 @@
+/*Estilização da página inicial da aplicação*/
+
+/*Header*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.header{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header > #logo-image{
+    width: 15%;
+}
+.header > .menu-nav{
+    width: 70%;
+    height: 100%;
+}
+.header > .menu-nav > .nav-menu-options{
+    width: 100%;
+    display: flex;
+    gap: 15%;
+    list-style-type: none;
+}
+.header > .menu-nav > .nav-menu-options > .nav-menu-option > .link-menu{
+    color: black;
+    text-decoration: none;
+}
+.header > .theme-and-contact{
+    width: 10%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.header > .theme-and-contact > .theme{
+    border: none;
+    width: 30px;
+    background-color: inherit;
+}
+.header > .theme-and-contact > .theme >.bi bi-sun {
+    width: 100%;
+}
