@@ -21,7 +21,7 @@
 
         <nav class='menu-nav'>
 
-            <ul class="nav-menu-options">
+            <ul class="menu-nav-list">
 
                 <li class="menu-nav-option"><a href="#" class='link-menu'>Início</a></li>
                 <li class="menu-nav-option"><a href="#" class='link-menu'>Serviços</a></li>
@@ -35,7 +35,7 @@
 
         <div class="theme-and-contact">
             
-            <button class="theme" name="theme"><i class="bi bi-sun"></i></button>
+            <button class="theme" name="theme"><i class="bi bi-sun fs-1"></i></button>
 
             <button class="contact-button" name="contact-button">conta-te nos</button>
 

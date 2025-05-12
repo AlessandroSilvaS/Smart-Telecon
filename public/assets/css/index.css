@@ -11,8 +11,10 @@
     width: 90%;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
+    box-shadow: offset-x offset-y blur-radius color;
+    margin-top: 20px;
 }
 .header > #logo-image{
     width: 15%;
@@ -20,14 +22,15 @@
 .header > .menu-nav{
     width: 70%;
     height: 100%;
+    background-color: blue;
 }
-.header > .menu-nav > .nav-menu-options{
+.header > .menu-nav > .menu-nav-list{
     width: 100%;
     display: flex;
     gap: 15%;
     list-style-type: none;
 }
-.header > .menu-nav > .nav-menu-options > .nav-menu-option > .link-menu{
+.header > .menu-nav > .menu-nav-list > .menu-nav-option > .link-menu{
     color: black;
     text-decoration: none;
 }
@@ -35,12 +38,10 @@
     width: 10%;
     display: flex;
     justify-content: space-evenly;
+    background-color: green;
 }
 .header > .theme-and-contact > .theme{
     border: none;
-    width: 30px;
+    width: 10px;
     background-color: inherit;
-}
-.header > .theme-and-contact > .theme >.bi bi-sun {
-    width: 100%;
 }
