@@ -35,11 +35,25 @@
 
         <div class="theme-and-contact">
             
-            <button class="theme" name="theme"><i class="bi bi-sun fs-1"></i></button>
+            <button class="theme" name="theme"><i class="bi bi-sun custom-size"></i></button>
 
-            <button class="contact-button" name="contact-button">conta-te nos</button>
+            <div class="contact-link-area">
+
+                <i class="bi bi-box-arrow-in-right custom-opacity"></i>
+
+                <a href="https://smarttelecom.eng.br/login" class='contact-link' target='_blank'>Entrar</a>
+
+            </div>
 
         </div>
+
+        <section class="apresentation">
+
+        <div class="apresentations-text">
+            
+        </div>
+
+        </section>
 
     </header>
 
