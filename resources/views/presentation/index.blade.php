@@ -12,70 +12,113 @@
      <!--Background-image-->
 
      <style>
+
         .header {
             background-image: url("{{ asset('assets/img/project/networkImage.jpg') }}");
         }
+
     </style>
      
     <title>Smart Telecon</title>
 </head>
 <body>
 
-    <!-- header e menu da aplicação com logo da empresa, menu de navegação, botão de tema e botão de contato rspectivamente-->
+    <div class="view-index">
 
-    <header class="header">
-
-        <img src="{{ asset('assets/img/project/LogoSmart.png') }}" alt="emprise logo" id="logo-image">
-
-        <nav class='menu-nav'>
-
-            <ul class="menu-nav-list">
-
-                <li class="menu-nav-option"><a href="#" class='link-menu'>Início</a></li>
-                <li class="menu-nav-option"><a href="#" class='link-menu'>Serviços</a></li>
-                <li class="menu-nav-option"><a href="#" class='link-menu'>Missão</a></li>
-                <li class="menu-nav-option"><a href="#" class='link-menu'>Valores</a></li>
-                <li class="menu-nav-option"><a href="#" class='link-menu'>Contatos</a></li>
-
-            </ul>
-
-        </nav>
-
-        <div class="theme-and-contact">
-            
-            <button class="theme-button" name="theme"><i class="bi bi-sun custom-size"></i></button>
-
-            <div class="contact-link-area">
-
-                <i class="bi bi-box-arrow-in-right custom-opacity"></i>
-
-                <a href="https://smarttelecom.eng.br/login" class='contact-link' target='_blank'>Entrar</a>
-
-            </div>
-
-        </div>
-
-    </header>
-
-    <main>
+        <!--primeira seção: apresentação-->
 
         <section class="apresentation">
 
-            <div class="apresentation-text">
+        <!--logo menu e funcionalidades-->
 
+            <div class="header-container">
+
+                <div class="header">
+
+                    <img src="{{ asset('assets/img/project/LogoSmart.png') }}" alt="emprise logo" id="logo-image">
+
+                    <nav class='menu-nav'>
+
+                        <ul class="menu-nav-list">
+
+                            <li class="menu-nav-option"><a href="#" class='link-menu'>Início</a></li>
+                            <li class="menu-nav-option"><a href="#" class='link-menu'>Serviços</a></li>
+                            <li class="menu-nav-option"><a href="#" class='link-menu'>Missão</a></li>
+                            <li class="menu-nav-option"><a href="#" class='link-menu'>Valores</a></li>
+                            <li class="menu-nav-option"><a href="#" class='link-menu'>Contatos</a></li>
+
+                        </ul>
+
+                    </nav>
+
+                    <div class="theme-and-contact">
+
+                        <button class="theme-button" name="theme"><i class="bi bi-sun custom-size"></i></button>
+
+                        <div class="contact-link-area">
+
+                            <i class="bi bi-box-arrow-in-right custom-opacity"></i>
+
+                            <a href="https://smarttelecom.eng.br/login" class='contact-link' target='_blank'>Entrar</a>
+
+                        </div>
+
+                    </div>
+
+                </div>
             </div>
 
-            <div class="apresentation-image">
+            <!--informações iniciais-->
+
+            <div class="apresentation-informations">
+
+            <!--Informações de texto-->
+
+                <div class="text-informations">
+
+                <!--Cabeçalhos-->
+
+                    <div class="container-headers">
+
+                        <h1>Regularização de provedores</h1>
+
+                        <h2>Projeto de compartilhamento de postes</h2>
+
+                        <h3>Nossos serviços garantem a regularização completa e eficiente para seu provedor de internet</h3>
+
+                    </div>
+
+                    <!--Outras informações-->
+
+
+                    <div class="container-list-and-contact">
+
+                        <ul class="apresentation-text-list">
+
+                            <li class="apresentation-text-option">Suporte técnico especializado</li>
+                            <li class="apresentation-text-option">Atendimento ao cliente de qualidade</li>
+                            <li class="apresentation-text-option">Regularização Rápida e eficiente</li>
+
+                        </ul>
+
+                        <a href="#" class="apresentation-text-link">Fale conosco</a>
+
+                    </div>
+                </div>
+
+                <!--Imagem inicial-->
+
+                <div class="apresentation-image">
+
+                    <img src="" alt="apresentation image" class="apresentation-image" id="apresentation-image">
                 
+                </div>
+
             </div>
 
         </section>
 
-    </main>
+    </div>
 
-    <footer>
-
-    </footer>
-    
 </body>
 </html>
