@@ -8,6 +8,14 @@
     <!--Biblioteca de icones -->
 
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+     <!--Background-image-->
+
+     <style>
+        .header {
+            background-image: url("{{ asset('assets/img/project/networkImage.jpg') }}");
+        }
+    </style>
      
     <title>Smart Telecon</title>
 </head>
@@ -35,7 +43,7 @@
 
         <div class="theme-and-contact">
             
-            <button class="theme" name="theme"><i class="bi bi-sun custom-size"></i></button>
+            <button class="theme-button" name="theme"><i class="bi bi-sun custom-size"></i></button>
 
             <div class="contact-link-area">
 
@@ -47,17 +55,21 @@
 
         </div>
 
-        <section class="apresentation">
-
-        <div class="apresentations-text">
-            
-        </div>
-
-        </section>
-
     </header>
 
     <main>
+
+        <section class="apresentation">
+
+            <div class="apresentation-text">
+
+            </div>
+
+            <div class="apresentation-image">
+                
+            </div>
+
+        </section>
 
     </main>
 

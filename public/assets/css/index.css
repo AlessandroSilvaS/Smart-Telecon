@@ -9,7 +9,6 @@
 }
 .header{
     width: 80%;
-    height: 100vh;
     margin: 0 auto;
     display: flex;
     justify-content: space-evenly;
@@ -42,13 +41,14 @@
     justify-content: space-between;
     align-items: center;
 }
-.header > .theme-and-contact > .theme{
+.header > .theme-and-contact > .theme-button{
     width: 15%;
     border: none;
     background-color: inherit;
     display: flex;
+    cursor: pointer;
 }
-.header > .theme-and-contact > .theme > .custom-size{
+.header > .theme-and-contact > .theme-button > .custom-size{
     font-size: 1.5rem;
 }
 .header > .theme-and-contact > .contact-link-area{
