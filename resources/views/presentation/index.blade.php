@@ -80,11 +80,11 @@
 
                     <div class="container-headers">
 
-                        <h1 class="container-headers">Regularização de provedores</h1>
+                        <h1 class="header-01">Regularização de provedores</h1>
 
-                        <h2 class="container-headers">Projeto de compartilhamento de postes</h2>
+                        <h2 class="header-02">Projeto de compartilhamento de postes</h2>
 
-                        <h4 class="container-headers">Nossos serviços garantem a regularização completa e eficiente para seu provedor de internet</h4>
+                        <h4 class="header-03">Nossos serviços garantem a regularização completa e eficiente para seu provedor de internet</h4>
 
                     </div>
 
@@ -114,6 +114,18 @@
                 
                 </div>
 
+            </div>
+
+        </section>
+
+        <!--Seção dois: serviços-->
+
+        <section class="service">
+
+            <h1>Conheça nossos serviços</h1>
+
+            <div class="container-cards-service">
+                
             </div>
 
         </section>
