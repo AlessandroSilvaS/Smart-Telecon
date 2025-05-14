@@ -84,6 +84,34 @@
 
 /*initial informations*/
 
-.apresentation .apresentation-text{
-    
+.apresentation > .apresentation-informations{
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+.apresentation > .apresentation-informations > .text-informations{
+    width: 50%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 5%;
+}
+.apresentation > .apresentation-informations > .text-informations >  .container-headers > .container-headers{
+    margin-bottom: 10px;
+}
+.apresentation > .apresentation-informations > .text-informations > .container-list-and-contact{
+    width: 50%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.apresentation > .apresentation-informations > .apresentation-image-container{
+    width: 50%;
+}
+.apresentation > .apresentation-informations > .apresentation-image-container > .apresentation-image{
+    width: 10%;
 }

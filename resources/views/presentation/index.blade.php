@@ -25,7 +25,7 @@
 
     <div class="view-index">
 
-        <!--primeira seção: apresentação-->
+        <!--first section: apresentation-->
 
         <section class="apresentation">
 
@@ -80,11 +80,11 @@
 
                     <div class="container-headers">
 
-                        <h1>Regularização de provedores</h1>
+                        <h1 class="container-headers">Regularização de provedores</h1>
 
-                        <h2>Projeto de compartilhamento de postes</h2>
+                        <h2 class="container-headers">Projeto de compartilhamento de postes</h2>
 
-                        <h3>Nossos serviços garantem a regularização completa e eficiente para seu provedor de internet</h3>
+                        <h4 class="container-headers">Nossos serviços garantem a regularização completa e eficiente para seu provedor de internet</h4>
 
                     </div>
 
@@ -95,9 +95,9 @@
 
                         <ul class="apresentation-text-list">
 
-                            <li class="apresentation-text-option">Suporte técnico especializado</li>
-                            <li class="apresentation-text-option">Atendimento ao cliente de qualidade</li>
-                            <li class="apresentation-text-option">Regularização Rápida e eficiente</li>
+                            <li class="apresentation-text-option"><i class="bi bi-check-circle"></i><span>Regularização Rápida e eficiente</span></li>
+                            <li class="apresentation-text-option"><i class="bi bi-check-circle"></i><span>Atendimento ao cliente de qualidade</span></li>
+                            <li class="apresentation-text-option"><i class="bi bi-check-circle"></i><span>Suporte técnico especializado</span></li>
 
                         </ul>
 
@@ -108,9 +108,9 @@
 
                 <!--Imagem inicial-->
 
-                <div class="apresentation-image">
+                <div class="apresentation-image-container">
 
-                    <img src="" alt="apresentation image" class="apresentation-image" id="apresentation-image">
+                    <img src="{{ asset('assets/img/project/worldDay.svg') }}" alt="apresentation image" id="apresentation-image">
                 
                 </div>
 
