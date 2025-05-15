@@ -122,7 +122,7 @@
 
         <section class="service">
 
-            <h1>Conheça nossos serviços</h1>
+            <h1 class="service-title">Conheça nossos serviços</h1>
 
             <div class="container-cards-service">
                 

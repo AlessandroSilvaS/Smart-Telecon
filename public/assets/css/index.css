@@ -15,7 +15,7 @@
 .apresentation{
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, #002679, #0ed4ee);
+    background: linear-gradient(90deg, #01455f, #0ed4ee);
     padding: 20px;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
@@ -99,7 +99,7 @@
 }
 .apresentation > .apresentation-informations > .text-informations{
     width: 50%;
-    height: 40%;
+    height: 50%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -117,22 +117,22 @@
 }
 .apresentation > .apresentation-informations > .text-informations > .container-list-and-contact{
     width: 50%;
-    height: 40%;
+    height: 80%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     color: white;
 }
 .apresentation > .apresentation-informations > .text-informations > .container-list-and-contact > .apresentation-text-list{
-    height: 75%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-bottom: 5%;
 }
 .apresentation > .apresentation-informations > .text-informations > .container-list-and-contact > .apresentation-text-list > .apresentation-text-option{
     list-style-type: none;
     font-size: 20px;
+    margin-bottom: 5%;
 }
 .apresentation > .apresentation-informations > .text-informations > .container-list-and-contact > .apresentation-text-link{
     width: 110px;
@@ -144,6 +144,7 @@
     text-decoration: none;
     color: white;
     font-size: 18px;
+    margin-top: 30px;
 }
 .apresentation > .apresentation-informations > .apresentation-image-container{
     width: 50%;
@@ -151,4 +152,16 @@
 .apresentation > .apresentation-informations > .apresentation-image-container > #apresentation-image{
     width: 100%;
     margin-top: 8%;
+}
+
+/*Section services*/
+
+.service{
+    width: 80%;
+    margin: 0 auto;
+}
+.service .service-title{
+    font-size: 48px;
+    text-align: center;
+    margin: 100px;
 }
