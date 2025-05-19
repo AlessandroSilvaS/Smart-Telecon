@@ -13,13 +13,12 @@ class cardProject extends Component
     public $title;
     public $content;
 
-
-    public function __construct($image, $title, $content)
+    public function __construct($image = null, $title = null, $content = null)
     {
 
         $this->image = $image;
         $this->title = $title;
-        $this->content =  $content;
+        $this->content = $content;
         
     }
 
