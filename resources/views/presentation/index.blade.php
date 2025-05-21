@@ -41,11 +41,10 @@
 
                         <ul class="menu-nav-list">
 
-                            <li class="menu-nav-option"><a href="#" class='link-menu'>Início</a></li>
-                            <li class="menu-nav-option"><a href="#" class='link-menu'>Serviços</a></li>
-                            <li class="menu-nav-option"><a href="#" class='link-menu'>Missão</a></li>
-                            <li class="menu-nav-option"><a href="#" class='link-menu'>Valores</a></li>
-                            <li class="menu-nav-option"><a href="#" class='link-menu'>Contatos</a></li>
+                            <li class="menu-nav-option"><a href="#init" class='link-menu'>Início</a></li>
+                            <li class="menu-nav-option"><a href="#services" class='link-menu'>Serviços</a></li>
+                            <li class="menu-nav-option"><a href="#mission" class='link-menu'>Missão</a></li>
+                            <li class="menu-nav-option"><a href="#contact" class='link-menu'>Contatos</a></li>
 
                         </ul>
 
@@ -70,7 +69,7 @@
 
             <!--informações iniciais-->
 
-            <div class="apresentation-informations">
+            <div class="apresentation-informations" id="init">
 
             <!--Informações de texto-->
 
@@ -120,7 +119,7 @@
 
         <!--Seção dois: serviços-->
 
-        <section class="service">
+        <section class="service" id="services">
 
             <h1 class="service-title">Conheça nossos serviços</h1>
 
@@ -167,7 +166,7 @@
                             'image' => "https://blog.synergyco.com.br/wp-content/uploads/2023/09/sistema-de-telecomunicacoes-1200x640.jpg",
                             'title' => "Smart Card",
                             'content' => "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus, similique repudiandae. Laudantium consectetur optio doloribus libero, temporibus tenetur ad tempore facere atque, corrupti nesciunt, quia sit? Iste similique quae a."
-                        ],
+                        ]
                     ];
                 @endphp
 
@@ -185,7 +184,7 @@
 
         <!--Section mission-->
 
-        <section class="mission">
+        <section class="mission" id="mission">
 
             <div class="mission-container-image">
 
@@ -202,6 +201,60 @@
                     <h2 class="text-informations">Nossa missão é proporcionar meios eficazes e seguros para a transmissão de dados, voz e imagem, conectando pessoas, empresas e tecnologias por meio de redes físicas e digitais. Temos como principal papel garantir o acesso à informação, à comunicação e à inclusão digital em escala local e global.</h2>
 
                 </div>
+
+            </div>
+
+        </section>
+
+        <!--Entre em contato-->
+
+        <section class="contact" id="contact">
+            
+            <div class="location-contact-container">
+
+                <div class="logo-and-name">
+
+                    <img src="{{asset('assets/img/project/LogoSmart.png')}}" alt="Smart Logo">
+
+                    <h2 style="color: aliceblue; font-size: 36px" >Smart Telecon</h2>
+
+                </div>
+
+                <div class="location">
+
+                    <h2 class="location-title">Endereço</h2>
+
+                    <p class="location-informations">Rua Daniel Esmero, 574, Croata 1</p>
+
+                    <p class="location-informations">Pacajus, CE-Brasil</p>
+
+                    <hr style="width: 100%; color: white">
+
+                </div>
+
+                <div class="contact-box">
+
+                    <h2 class="contact-box-title">Contatos</h2>
+
+                    <p class="contact-box-informations">Telefone 1: <span id="first-Telefon">+55 85 99254-1025</span></p>
+                    <p class="contact-box-informations">Telefone 2: <span id="second-Telefon">+55 85 99263-7260</span></p>
+                    <p class="contact-box-informations" id="last-contact">Email: <span id="email-contact">contato@smarttelecom.eng.br</span></p>
+
+                </div>
+
+            </div>
+
+            <div class="social-content">
+
+                <h3 style="color: aliceblue; font-size: 26px">Nossas redes sociais</h3>
+                
+                <x-social-button nameOfSocialMidia="Whatsapp" width="200px" backgroundColor="#25D366"><i class="bi bi-whatsapp"></i></x-social-button>
+
+                <x-social-button nameOfSocialMidia="Instagram" width="200px" backgroundColor="#E4405F"><i class="bi bi-instagram"></i></x-social-button>
+
+                <x-social-button nameOfSocialMidia="Facebook" width="200px" backgroundColor="#1877F2"><i class="bi bi-facebook"></i></x-social-button>
+
+                <x-social-button nameOfSocialMidia="Linkedin" width="200px" backgroundColor="#0077B5"><i class="bi bi-linkedin"></i></x-social-button>
 
             </div>
 
