@@ -1,4 +1,4 @@
-<div class="card shadow-md p-4 mb-4 bg-white rounded-lg">
+<div class="card shadow-md p-4 mb-4 bg-white rounded-lg card-of-service">
 
     @if($image)
 
