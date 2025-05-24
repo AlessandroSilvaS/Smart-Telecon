@@ -157,7 +157,7 @@
 /*Section services*/
 
 .service{
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
 }
 .service > .service-title{
@@ -166,14 +166,14 @@
     margin: 100px;
 }
 .service > .container-cards-service{
-    width: 100%;
+    width: 80%;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(4, 350px);
+    grid-template-columns: repeat(4, 25%);
     gap: 25px;
 }
 .service > .container-cards-service > .card-of-service{
-    width: 350px;
+    width: 75%px;
     height: 450px;
     box-shadow: 2px 4px 6px 0px rgba(0, 0, 0, 0.2);
     border-radius: 15px;

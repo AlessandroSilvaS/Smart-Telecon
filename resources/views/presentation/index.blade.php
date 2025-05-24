@@ -125,58 +125,17 @@
 
             <div class="container-cards-service">
 
-                @php
-                    $arrayOfServicesCard = [
-                        [
-                            'image' => "https://blog.synergyco.com.br/wp-content/uploads/2023/09/sistema-de-telecomunicacoes-1200x640.jpg",
-                            'title' => "Smart Card",
-                            'content' => "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus, similique repudiandae. Laudantium consectetur optio doloribus libero, temporibus tenetur ad tempore facere atque, corrupti nesciunt, quia sit? Iste similique quae a."
-                        ],
-                        [
-                            'image' => "https://blog.synergyco.com.br/wp-content/uploads/2023/09/sistema-de-telecomunicacoes-1200x640.jpg",
-                            'title' => "Smart Card",
-                            'content' => "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus, similique repudiandae. Laudantium consectetur optio doloribus libero, temporibus tenetur ad tempore facere atque, corrupti nesciunt, quia sit? Iste similique quae a."
-                        ],
-                        [
-                            'image' => "https://blog.synergyco.com.br/wp-content/uploads/2023/09/sistema-de-telecomunicacoes-1200x640.jpg",
-                            'title' => "Smart Card",
-                            'content' => "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus, similique repudiandae. Laudantium consectetur optio doloribus libero, temporibus tenetur ad tempore facere atque, corrupti nesciunt, quia sit? Iste similique quae a."
-                        ],
-                        [
-                            'image' => "https://blog.synergyco.com.br/wp-content/uploads/2023/09/sistema-de-telecomunicacoes-1200x640.jpg",
-                            'title' => "Smart Card",
-                            'content' => "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus, similique repudiandae. Laudantium consectetur optio doloribus libero, temporibus tenetur ad tempore facere atque, corrupti nesciunt, quia sit? Iste similique quae a."
-                        ],
-                        [
-                            'image' => "https://blog.synergyco.com.br/wp-content/uploads/2023/09/sistema-de-telecomunicacoes-1200x640.jpg",
-                            'title' => "Smart Card",
-                            'content' => "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus, similique repudiandae. Laudantium consectetur optio doloribus libero, temporibus tenetur ad tempore facere atque, corrupti nesciunt, quia sit? Iste similique quae a."
-                        ],
-                        [
-                            'image' => "https://blog.synergyco.com.br/wp-content/uploads/2023/09/sistema-de-telecomunicacoes-1200x640.jpg",
-                            'title' => "Smart Card",
-                            'content' => "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus, similique repudiandae. Laudantium consectetur optio doloribus libero, temporibus tenetur ad tempore facere atque, corrupti nesciunt, quia sit? Iste similique quae a."
-                        ],
-                        [
-                            'image' => "https://blog.synergyco.com.br/wp-content/uploads/2023/09/sistema-de-telecomunicacoes-1200x640.jpg",
-                            'title' => "Smart Card",
-                            'content' => "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus, similique repudiandae. Laudantium consectetur optio doloribus libero, temporibus tenetur ad tempore facere atque, corrupti nesciunt, quia sit? Iste similique quae a."
-                        ],
-                        [
-                            'image' => "https://blog.synergyco.com.br/wp-content/uploads/2023/09/sistema-de-telecomunicacoes-1200x640.jpg",
-                            'title' => "Smart Card",
-                            'content' => "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus, similique repudiandae. Laudantium consectetur optio doloribus libero, temporibus tenetur ad tempore facere atque, corrupti nesciunt, quia sit? Iste similique quae a."
-                        ]
-                    ];
-                @endphp
-
-                @foreach ($arrayOfServicesCard as $card)
-                    <x-card-project 
-                        :image="$card['image']" 
-                        :title="$card['title']" 
-                        :content="$card['content']"
-                    />
-                @endforeach
+                @if (!empty($cards))
+                    @foreach ($cards as $card)
+                        <x-card-project 
+                            :image="$card['image']" 
+                            :title="$card['title']" 
+                            :content="$card['content']" 
+                        />
+                    @endforeach
+                @else
+                    <p>Nenhum card encontrado.</p>
+                @endif
 
             </div>
 
