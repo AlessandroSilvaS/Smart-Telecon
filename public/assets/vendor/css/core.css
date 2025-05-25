@@ -3898,6 +3898,20 @@ textarea.form-control-lg {
   border-radius: 0.5rem 0.5rem 0 0;
 }
 
+.buttons-arrea{
+  display: flex;
+  justify-content: end;
+  width: 100%;
+}
+.buttons-arrea > .buttons-arrea-buttons{
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  margin: 10px; 
+  cursor: pointer;
+}
+
 .card-footer {
   padding: 1.5rem 1.5rem;
   background-color: transparent;
@@ -6228,7 +6242,7 @@ a.invert-bg-dark:hover, a.invert-bg-dark:focus {
   letter-spacing: 1px;
 }
 .table:not(.table-dark) th {
-  color: #566a7f;
+  color: #e2e2e2;
 }
 
 .table-border-bottom-0 tr:last-child td,
@@ -15218,6 +15232,15 @@ html:not(.layout-menu-fixed) .menu-inner-shadow {
   align-items: stretch;
 }
 
+/*Layout da páina provider*/
+
+.layout-container-tables-project{
+  min-height: 100vh;
+  width: 100%;
+  flex: 1 1 auto;
+  align-items: stretch;
+}
+
 .layout-page,
 .content-wrapper,
 .content-wrapper > *,
@@ -15735,6 +15758,13 @@ html:not(.layout-footer-fixed) .content-wrapper {
   .layout-menu-collapsed:not(.layout-menu-hover):not(.layout-menu-offcanvas):not(.layout-menu-fixed-offcanvas) .layout-menu .app-brand-img-collapsed {
     display: block;
   }
+}
+
+/*avatar and name*/
+
+.avatar-and-name{
+  display: flex;
+  gap: 20px;
 }
 .avatar {
   position: relative;

@@ -8,16 +8,6 @@
     <!--Biblioteca de icones -->
 
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-
-     <!--Background-image-->
-
-     <style>
-
-        .header {
-            background-image: url("{{ asset('assets/img/project/networkImage.jpg') }}");
-        }
-
-    </style>
      
     <title>Smart Telecon</title>
 </head>

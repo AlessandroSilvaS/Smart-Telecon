@@ -7,6 +7,10 @@ Route::get('/', function () {
     return view('presentation.index');
 });
 
+Route::get('/provider', function () {
+    return view('presentation.provider');
+});
+
 Route::get('/presentation', [CardController::class, 'index']);
 
 Route::middleware([
