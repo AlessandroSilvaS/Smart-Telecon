@@ -206,14 +206,18 @@
             <div class="social-content">
 
                 <h3 style="color: aliceblue; font-size: 26px">Nossas redes sociais</h3>
-                
-                <x-social-button nameOfSocialMidia="Whatsapp" width="200px" backgroundColor="#25D366"><i class="bi bi-whatsapp"></i></x-social-button>
 
-                <x-social-button nameOfSocialMidia="Instagram" width="200px" backgroundColor="#E4405F"><i class="bi bi-instagram"></i></x-social-button>
+                <div class="social-content-buton">
 
-                <x-social-button nameOfSocialMidia="Facebook" width="200px" backgroundColor="#1877F2"><i class="bi bi-facebook"></i></x-social-button>
+                    <x-social-button nameOfSocialMidia="Whatsapp" width="200px" backgroundColor="#25D366"><i class="bi bi-whatsapp"></i></x-social-button>
 
-                <x-social-button nameOfSocialMidia="Linkedin" width="200px" backgroundColor="#0077B5"><i class="bi bi-linkedin"></i></x-social-button>
+                    <x-social-button nameOfSocialMidia="Instagram" width="200px" backgroundColor="#E4405F"><i class="bi bi-instagram"></i></x-social-button>
+
+                    <x-social-button nameOfSocialMidia="Facebook" width="200px" backgroundColor="#1877F2"><i class="bi bi-facebook"></i></x-social-button>
+
+                    <x-social-button nameOfSocialMidia="Linkedin" width="200px" backgroundColor="#0077B5"><i class="bi bi-linkedin"></i></x-social-button>
+
+                </div>   
 
             </div>
 
