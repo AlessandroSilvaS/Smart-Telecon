@@ -24,12 +24,20 @@ class CreateNewUser implements CreatesNewUsers
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => $this->passwordRules(),
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
+            'photo' => ['nullable', 'image', 'max:2048'],
         ])->validate();
+
+        $photoPath = null;
+
+        if(isset($input['photo'])){
+            $photoPath = $input['photo']->store('profile-photos', 'public');
+        }
 
         return User::create([
             'name' => $input['name'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
+            'profile_photo_path' => $photoPath,
         ]);
     }
 }

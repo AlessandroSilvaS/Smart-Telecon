@@ -90,7 +90,7 @@
 
                         </ul>
 
-                        <a href="#" class="apresentation-text-link">Fale conosco</a>
+                        <a href="https://api.whatsapp.com/send/?phone=5585992541025&text=Saiba+mais+acerca+de+nossos+servi%C3%A7os+ofertados.&type=phone_number&app_absent=0" class="apresentation-text-link">Fale conosco</a>
 
                     </div>
                 </div>
@@ -124,7 +124,7 @@
                         />
                     @endforeach
                 @else
-                    <p>Nenhum card encontrado.</p>
+                    <p>Card não encontrado.</p>
                 @endif
 
             </div>
