@@ -30,19 +30,12 @@
             </div>
 
             <div class="mt-4">
-                <x-label for="photo" value="{{ __('Foto de perfil') }}" />
-                <x-input id="photo" class="block mt-1 w-full" type="file" name="photo" />
-            </div>
-
-            <hr>
-
-            <div class="mt-4">
                 <x-label for="password" value="{{ __('Senha') }}" />
                 <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
             </div>
 
             <div class="mt-4">
-                <x-label for="password_confirmation" value="{{ __('Confirme a senha') }}" />
+                <x-label for="password_confirmation" value="{{ __('Confirmar Senha') }}" />
                 <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
             </div>
 
@@ -65,7 +58,7 @@
 
             <div class="flex items-center justify-end mt-4">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                    {{ __('Já esta cadastrado?') }}
+                    {{ __('Já está cadastrado?') }}
                 </a>
 
                 <x-button class="ms-4">

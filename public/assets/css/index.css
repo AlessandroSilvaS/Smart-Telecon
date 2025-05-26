@@ -254,7 +254,7 @@ html{
     height: 50vh;
     display: flex;
     margin-top: 100px;
-    background-color: #01455f;
+    background-color: #022938;
     border-radius: 15px;
 }
 .contact > .location-contact-container, .social-content{
@@ -270,13 +270,13 @@ html{
 }
 .contact > .location-contact-container > .logo-and-name{
     display: flex;
-    width: 50%;
-    justify-content: space-evenly;
+    width: 40%;
+    justify-content: start;
     align-items: center;
     margin-bottom: 20px;
 }
 .contact > .location-contact-container > .logo-and-name > img{
-    width: 30%;
+    width: 10%;
 }
 .contact > .location-contact-container > .location, .contact-box{
     width: 40%;

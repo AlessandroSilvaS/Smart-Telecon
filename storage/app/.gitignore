@@ -1,4 +1,6 @@
 *
+!data/
+!cards.json/
 !private/
 !public/
 !.gitignore

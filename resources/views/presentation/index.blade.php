@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt_br">
 <head>
+
+    <link rel="shortcut icon" href="https://smarttelecom.eng.br/new_template/assets/img/favicon.png"" type="image/x-icon">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('assets/css/index.css') }}">
@@ -9,7 +12,7 @@
 
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
      
-    <title>Smart Telecon</title>
+    <title>Smart Telecon | Projetos e consultorias</title>
 </head>
 <body>
 
@@ -163,7 +166,7 @@
 
                 <div class="logo-and-name">
 
-                    <img src="{{asset('assets/img/project/LogoSmart.png')}}" alt="Smart Logo">
+                    <img src="https://smarttelecom.eng.br/new_template/assets/img/favicon.png" alt="Smart Logo">
 
                     <h2 style="color: aliceblue; font-size: 36px" >Smart Telecon</h2>
 

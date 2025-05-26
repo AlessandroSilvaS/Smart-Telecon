@@ -1,3 +1,5 @@
-<a href="/">
-    <img src="{{asset('assets/img/project/LogoSmart.png')}}" alt="" class="h-16 w-auto mx-auto">
-</a>
+<div style="display: flex; justify-content: center; align-items: center;">
+    <a href="/">
+        <img src="https://smarttelecom.eng.br/new_template/assets/img/favicon.png" style="width: 80%;" alt="Logo" />
+    </a>
+</div>

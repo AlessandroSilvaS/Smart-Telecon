@@ -25,27 +25,25 @@
                 <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
             </div>
 
-
             <div class="flex items-center justify-end mt-4">
                 @if (Route::has('password.request'))
                     <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
                         {{ __('Esqueceu a senha?') }}
                     </a>
+                @endif
 
-                    <p style="margin: 10px">
-                        ou
-                    </p>
+                <p style="margin: 10px;">ou</p>
 
+                @if (Route::has('register'))
                     <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('register') }}">
                         {{ __('Não tem uma conta?') }}
                     </a>
-                @endif
+                @endif                
 
                 <x-button class="ms-4">
-                    {{ __('Entrar') }}
+                    {{ __('Log in') }}
                 </x-button>
             </div>
-
         </form>
     </x-authentication-card>
 </x-guest-layout>
