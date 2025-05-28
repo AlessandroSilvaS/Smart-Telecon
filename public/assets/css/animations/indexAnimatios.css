@@ -1,0 +1,18 @@
+/*Elements*/
+
+.apresentation > .apresentation-informations > .text-informations >  .container-headers > .header-01{
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    animation: TitleReveal 1s steps(30) forwards;
+}
+
+/*frames*/
+
+@keyframes TitleReveal{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}

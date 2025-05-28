@@ -6,6 +6,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="{{ asset('assets/css/index.css') }}">
 
     <!--Biblioteca de icones -->
@@ -24,7 +25,7 @@
 
         <!--logo menu e funcionalidades-->
 
-            <div class="header-container">
+            <div class="header-container" id='header-container'>
 
                 <div class="header">
 
@@ -44,8 +45,6 @@
                     </nav>
 
                     <div class="theme-and-contact">
-
-                        <button class="theme-button" name="theme"><i class="bi bi-sun custom-size"></i></button>
 
                         <div class="contact-link-area">
 
@@ -100,11 +99,11 @@
 
                 <!--Imagem inicial-->
 
-                <div class="apresentation-image-container">
+                <!-- <div class="apresentation-image-container">
 
                     <img src="{{ asset('assets/img/project/worldDay.svg') }}" alt="apresentation image" id="apresentation-image">
                 
-                </div>
+                </div> -->
 
             </div>
 
@@ -151,6 +150,12 @@
                 <div class="mission-text-informations">
 
                     <h2 class="text-informations">Nossa missão é proporcionar meios eficazes e seguros para a transmissão de dados, voz e imagem, conectando pessoas, empresas e tecnologias por meio de redes físicas e digitais. Temos como principal papel garantir o acesso à informação, à comunicação e à inclusão digital em escala local e global.</h2>
+
+                </div>
+
+                <div class="container-financcee-button">
+
+                    <button class="finance-simulator">Simule um financiamento!</button>
 
                 </div>
 
@@ -215,6 +220,8 @@
             </div>
 
         </section>
+
+        <footer class="footer-page">&copy  2025 Smart Telecom - Projetos e Consultoria. Todos os direitos reservados.</footer>
 
     </div>
 

@@ -1,5 +1,7 @@
 /*Estilização da página inicial da aplicação*/
 
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;700&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -8,9 +10,13 @@
 html{
     scroll-behavior: smooth;
 }
+body{
+    background-color: #f3f2f2;
+    font-family: 'Public Sans', sans-serif;
+}
 .view-index{
     width: 100%;
-    height: 90vh;
+    height: 100vh;
 }
 
 /*section apresentation*/
@@ -18,7 +24,10 @@ html{
 .apresentation{
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, #01455f, #0ed4ee);
+    background-image: url("/assets/img/project/networkImage.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     padding: 20px;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
@@ -34,17 +43,16 @@ html{
     border-radius: 15px;
 }
 .apresentation > .header-container > .header{
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    background-color: white;
     padding: 10px;
     border-radius: 15px;
 }
 .apresentation > .header-container > .header > #logo-image{
-    width: 10%;
+    width: 15%;
     margin-right: 5%;
 }
 .apresentation > .header-container > .header > .menu-nav{
@@ -67,16 +75,6 @@ html{
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-.apresentation > .header-container > .header > .theme-and-contact > .theme-button{
-    width: 15%;
-    border: none;
-    background-color: inherit;
-    display: flex;
-    cursor: pointer;
-}
-.apresentation > .header-container > .header > .theme-and-contact > .theme-button > .custom-size{
-    font-size: 1.5rem;
 }
 .apresentation > .header-container > .header > .theme-and-contact > .contact-link-area{
     display: flex;
@@ -113,25 +111,28 @@ html{
 }
 .apresentation > .apresentation-informations > .text-informations{
     width: 50%;
-    height: 50%;
+    height: 70%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     margin-top: 8%;
 }
 .apresentation > .apresentation-informations > .text-informations >  .container-headers > .header-01, .header-02, .header-03{
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     color: white;
 }
 .apresentation > .apresentation-informations > .text-informations >  .container-headers > .header-01{
-    font-size: 50px;
+    font-size: 26px;
 }
 .apresentation > .apresentation-informations > .text-informations >  .container-headers > .header-02{
-    font-size: 25px;
+    font-size: 30px;
+}
+.apresentation > .apresentation-informations > .text-informations >  .container-headers > .header-03{
+    font-size: 18px;
 }
 .apresentation > .apresentation-informations > .text-informations > .container-list-and-contact{
     width: 50%;
-    height: 80%;
+    height: 50%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -145,12 +146,13 @@ html{
 }
 .apresentation > .apresentation-informations > .text-informations > .container-list-and-contact > .apresentation-text-list > .apresentation-text-option{
     list-style-type: none;
-    font-size: 20px;
+    font-size: 22px;
     margin-bottom: 5%;
+    font-weight: 500;
 }
 .apresentation > .apresentation-informations > .text-informations > .container-list-and-contact > .apresentation-text-link{
-    width: 110px;
-    height: 30px;
+    width: 150px;
+    height: 60px;
     background-color: #04b0d3;
     padding: 5px;
     border-radius: 5px;
@@ -159,6 +161,14 @@ html{
     color: white;
     font-size: 18px;
     margin-top: 30px;
+    align-content: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.apresentation > .apresentation-informations > .text-informations > .container-list-and-contact > .apresentation-text-link:hover{
+    background-color: #038eaa;
 }
 .apresentation > .apresentation-informations > .apresentation-image-container{
     width: 50%;
@@ -175,9 +185,11 @@ html{
     margin: 0 auto;
 }
 .service > .service-title{
-    font-size: 48px;
+    font-size: 52px;
     text-align: center;
     margin: 100px;
+    color: #575757;
+    font-weight: 300;
 }
 .service > .container-cards-service{
     width: 80%;
@@ -203,13 +215,14 @@ html{
 .service > .container-cards-service > .card > .card-header > h5 {
     font-size: 26px;
     margin: 10px;
-    color: #555555;
+    color: #353535;
     font-weight: 200;
 }
 .service > .container-cards-service > .card > .card-body > p{
     font-size: 18px;
     text-align: left;
     margin: 10px;
+    color: #575757;
 }
 
 /*Mission section*/
@@ -219,7 +232,7 @@ html{
     height: 80vh;
     margin: 0 auto;
     display: flex;
-    margin-top: 100px;
+    margin-top: 200px;
 }
 .mission > .mission-container-image, .mission-container-text{
     width: 50%;
@@ -239,12 +252,34 @@ html{
 .mission > .mission-container-text > .mission-text-header{
     font-size: 60px;
     margin-bottom: 80px;
+    color: #353535;
 }
 .mission > .mission-container-text > .mission-text-informations > .text-informations{
     font-size: 26px;
     max-width: 500px;
     text-align: justify;
     line-height: 35px;
+    font-weight: 300;
+}
+.mission > .mission-container-text > .container-financcee-button{
+    margin-top  : 50px;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+}
+.mission > .mission-container-text > .container-financcee-button > .finance-simulator{
+    width: 100%;
+    font-size: 28px;
+    padding: 20px;
+    border-radius: 50px;
+    border: none;
+    background-color: #04cdf5;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.5s ease-in-out;
+}
+.mission > .mission-container-text > .container-financcee-button > .finance-simulator:hover{
+    background-color: #04b0d3;
 }
 
 /*section contact*/
@@ -254,8 +289,9 @@ html{
     height: 50vh;
     display: flex;
     margin-top: 100px;
-    background-color: #022938;
-    border-radius: 15px;
+    background-color: #021f2b;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
 }
 .contact > .location-contact-container, .social-content{
     width: 50%;
@@ -305,4 +341,15 @@ html{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+}
+
+/*footer*/
+
+.footer-page{
+    width: 100%;
+    min-height: 30px;
+    background-color: #010f14 ;
+    text-align: center;
+    color: white;
+    padding: 10px;
 }
