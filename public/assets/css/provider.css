@@ -1,0 +1,10 @@
+.container-initial-informations{
+    width: 100%;
+}
+.container-initial-informations > .initial-informations-title-and-subtitle{
+    width: 40%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

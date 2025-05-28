@@ -86,9 +86,9 @@
 
                         <ul class="apresentation-text-list">
 
-                            <li class="apresentation-text-option"><i class="bi bi-check-circle"></i><span>Regularização Rápida e eficiente</span></li>
-                            <li class="apresentation-text-option"><i class="bi bi-check-circle"></i><span>Atendimento ao cliente de qualidade</span></li>
-                            <li class="apresentation-text-option"><i class="bi bi-check-circle"></i><span>Suporte técnico especializado</span></li>
+                            <li class="apresentation-text-option"><i class="bi bi-check-circle"></i><span class='topt-spam'>Regularização Rápida e eficiente</span></li>
+                            <li class="apresentation-text-option"><i class="bi bi-check-circle"></i><span class='topt-spam'>Atendimento ao cliente de qualidade</span></li>
+                            <li class="apresentation-text-option"><i class="bi bi-check-circle"></i><span class='topt-spam'>Suporte técnico especializado</span></li>
 
                         </ul>
 

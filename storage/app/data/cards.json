@@ -1,0 +1,42 @@
+[
+    {
+        "image": "assets/img/project/servicesImages/consultoriaCREA.jpg",
+        "title": "Consultoria CREA",
+        "content": "Conte com nossa expertise para orientação e regularização junto ao CREA. Desde a concepção até a execução, garantimos conformidade e qualidade em seus projetos."
+    },
+    {
+        "image": "assets/img/project/servicesImages/consultoriaAnatel.jpg",
+        "title": "Consultoria Anatel",
+        "content": "Navegue com tranquilidade pelo universo das telecomunicações com nossa consultoria especializada. Atendemos desde regulamentações até licenciamentos, assegurando sua conformidade com a Anatel."
+    },
+    {
+        "image": "assets/img/project/servicesImages/consultoriaAsn.jpg",
+        "title": "Consultoria ASN",
+        "content": "Maximizamos sua conectividade com nossa consultoria em Sistemas Autônomos (ASN). Otimize rotas, melhore a segurança e impulsione o desempenho da sua rede com nossa orientação especializada."
+    },
+    {
+        "image": "assets/img/project/servicesImages/consultoriaContabil.jpg",
+        "title": "Consultoria Contábil",
+        "content": "Desembarace os nós da contabilidade com nossa consultoria especializada. Desde a organização fiscal até análises estratégicas, proporcionamos clareza e eficiência para o seu negócio."
+    },
+    {
+        "image": "assets/img/project/servicesImages/consultoriaJuridica.jpg",
+        "title": "Consultoria Jurídica",
+        "content": "Proteja seus interesses e mantenha-se em conformidade com a legislação. Nossa consultoria jurídica oferece suporte especializado para resolver questões legais complexas e evitar problemas futuros."
+    },
+    {
+        "image": "assets/img/project/servicesImages/compartilhamentoDePostes.jpg",
+        "title": "Compartilhamento de postes",
+        "content": "Facilitamos a expansão de redes através de projetos eficientes de compartilhamento de postes. Economize recursos e agilize implantações com nossa abordagem estratégica."
+    },
+    {
+        "image": "assets/img/project/servicesImages/redesOpticas.jpg",
+        "title": "Redes ÓPTICAS (FTTH)",
+        "content": "Transforme sua infraestrutura de comunicação com nossa expertise em projetos de redes ópticas. Leve conexões de alta velocidade até seus clientes com soluções FTTH eficientes e confiáveis."
+    },
+    {
+        "image": "assets/img/project/servicesImages/configuracaoDeEquipamentos.jpg",
+        "title": "Configuração de Equipamentos",
+        "content": "Garanta o máximo desempenho de seus equipamentos com nossa configuração especializada. Desde roteadores até servidores, otimizamos cada configuração para atender às suas necessidades específicas."
+    }
+]
