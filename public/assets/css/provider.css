@@ -8,3 +8,14 @@
     flex-direction: column;
     align-items: center;
 }
+.container-initial-informations > .header-container{
+    width: 100%;
+    display: flex;
+}
+.container-initial-informations > .header-container > .name-and-photo-user{
+    width: 20%;
+    min-height: 50px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}

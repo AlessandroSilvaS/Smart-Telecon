@@ -58,19 +58,32 @@
   <body>
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
+
       <div class="layout-container-tables-project">
 
           <div class="container-initial-informations">
 
-            <div class="user-container">
-              <i class="bi bi-person-circle">User</i>
+            <div class="header-container">
+
+              <div class="name-and-photo-user">
+
+                <i class="bi bi-person-circle fs-1"></i>
+
+                <h2>User_name</h2>
+
+              </div>
+
+              <div class="menu-button">
+                
+              </div>
+
             </div>
 
             <div class="initial-informations-title-and-subtitle">
 
               <div class="initial-information-title">
 
-                <h1>Bem vindo de Volta *Cliente*!</h1>
+                <h1>Bem vindo de Volta <span id="client_name">*Cliente*</span>!</h1>
 
               </div>
 
@@ -99,11 +112,11 @@
 
                     <!--butões de gerar documento e adicionar plano-->
 
-                    <div class="buttons-arrea">
+                    <div class="buttons-area">
 
-                      <button class="buttons-arrea-buttons"><i class="bi bi-file-earmark-bar-graph fs-4"></i></button>
+                      <button class="buttons-area-buttons"><i class="bi bi-file-earmark-bar-graph fs-4"></i></button>
 
-                      <button class="buttons-arrea-buttons"><i class="bi bi-plus fs-4"></i></button>
+                      <button class="buttons-area-buttons"><i class="bi bi-plus fs-4"></i></button>
 
                     </div>
                 
@@ -118,7 +131,99 @@
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                      
+
+                      <tr>
+
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Angular Project</strong></td>
+                        <td>mgb</td>
+                        <td>price</td>
+                        <td>
+                            <div class="dropdown">
+                              <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                <i class="bx bx-dots-vertical-rounded"></i>
+                              </button>
+                              <div class="dropdown-menu">
+                                <a class="dropdown-item" href="javascript:void(0);"
+                                  ><i class="bx bx-edit-alt me-1"></i> Edit</a
+                                >
+                                <a class="dropdown-item" href="javascript:void(0);"
+                                  ><i class="bx bx-trash me-1"></i> Delete</a
+                                >
+                              </div>
+                            </div>
+                          </td>
+
+                      </tr>
+
+                      <tr>
+
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Angular Project</strong></td>
+                        <td>mgb</td>
+                        <td>price</td>
+                        <td>
+                            <div class="dropdown">
+                              <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                <i class="bx bx-dots-vertical-rounded"></i>
+                              </button>
+                              <div class="dropdown-menu">
+                                <a class="dropdown-item" href="javascript:void(0);"
+                                  ><i class="bx bx-edit-alt me-1"></i> Edit</a
+                                >
+                                <a class="dropdown-item" href="javascript:void(0);"
+                                  ><i class="bx bx-trash me-1"></i> Delete</a
+                                >
+                              </div>
+                            </div>
+                          </td>
+
+                      </tr>
+
+                      <tr>
+
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Angular Project</strong></td>
+                        <td>mgb</td>
+                        <td>price</td>
+                        <td>
+                            <div class="dropdown">
+                              <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                <i class="bx bx-dots-vertical-rounded"></i>
+                              </button>
+                              <div class="dropdown-menu">
+                                <a class="dropdown-item" href="javascript:void(0);"
+                                  ><i class="bx bx-edit-alt me-1"></i> Edit</a
+                                >
+                                <a class="dropdown-item" href="javascript:void(0);"
+                                  ><i class="bx bx-trash me-1"></i> Delete</a
+                                >
+                              </div>
+                            </div>
+                          </td>
+
+                      </tr>
+
+                      <tr>
+
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Angular Project</strong></td>
+                        <td>mgb</td>
+                        <td>price</td>
+                        <td>
+                            <div class="dropdown">
+                              <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                <i class="bx bx-dots-vertical-rounded"></i>
+                              </button>
+                              <div class="dropdown-menu">
+                                <a class="dropdown-item" href="javascript:void(0);"
+                                  ><i class="bx bx-edit-alt me-1"></i> Edit</a
+                                >
+                                <a class="dropdown-item" href="javascript:void(0);"
+                                  ><i class="bx bx-trash me-1"></i> Delete</a
+                                >
+                              </div>
+                            </div>
+                          </td>
+
+                      </tr>
+                
                     </tbody>
                   </table>
                 </div>
