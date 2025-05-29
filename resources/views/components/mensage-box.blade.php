@@ -5,7 +5,7 @@
     if($type && $type != null){
 
         switch ($type) {
-            case 'sucess':
+            case 'success':
                 
                 $bgColor = '#28a745';
 
@@ -35,31 +35,27 @@
     }
 ?>
 
-<div>
+<div style="width: {{$widthDimension}}; background-color: {{$bgColor}};">
 
     @if($title)
 
-        <div class="title-mensage">
+        <div class="title-mensage" style='color: white;'>
 
             {{$title}}
     
         </div>
 
-    @end
+    @endif
+
 
     @if($text)
 
-        <div class="text-mensage">
+        <div class="text-mensage" style='color: white;'>
 
             {{$text}}
 
         </div>
-
-    @end
-
-    @if($includeButton == true)
-
-        {{$includeButton}}
-
     @endif
+
+    
 </div>

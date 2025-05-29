@@ -97,6 +97,12 @@
 
           </div>
 
+          <div class="menssage-container" style='width: 100%; background-color: blue;'>
+
+              <x-mensage-box :title="'Sucesso!'" :text="'Operação bem sucedida!'" :type="'success'" :widthDimension="'20%'"/>
+
+          </div>
+
           <!-- Content wrapper -->
           <div class="content-wrapper">
             <!-- Content -->
