@@ -97,9 +97,9 @@
 
           </div>
 
-          <div class="menssage-container" style='width: 100%; background-color: blue;'>
+          <div class="menssage-container" style='width: 100%;'>
 
-              <x-mensage-box :title="'Sucesso!'" :text="'Operação bem sucedida!'" :type="'success'" :widthDimension="'20%'"/>
+              <x-mensage-box :title="'Sucesso!'" :text="'Operação bem sucedida!'" :type="'warning'" :widthDimension="'20%'"/>
 
           </div>
 

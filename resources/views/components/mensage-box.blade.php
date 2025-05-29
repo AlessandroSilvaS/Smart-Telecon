@@ -19,7 +19,7 @@
 
             case 'warning':
 
-                $bgColor = '##ffc107';
+                $bgColor = '#ffc107';
     
                 break;
 
@@ -35,9 +35,10 @@
     }
 ?>
 
-<div style="width: {{$widthDimension}}; background-color: {{$bgColor}};">
+<div style="width: {{$widthDimension}}; min-height: 100px; background-color: {{$bgColor}}; margin: 0 auto; border-radius: 15px">
 
-    @if($title)
+
+    @if($title) 
 
         <div class="title-mensage" style='color: white;'>
 
