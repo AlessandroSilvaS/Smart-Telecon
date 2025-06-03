@@ -15,6 +15,10 @@ Route::middleware(['auth', 'admin'])->group(function () {
     });
 });
 
+Route::get('/provider/createDocument', function(){
+    return view('presentation.createDocument');
+});
+
 
 Route::middleware([
     'auth:sanctum',

@@ -14,7 +14,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Seus provedores</title>
+    <title>Smart | Seus provedores</title>
 
     <meta name="description" content="" />
 
@@ -57,27 +57,20 @@
 
   <body>
     <!-- Layout wrapper -->
+    <x-app-layout>
+
     <div class="layout-wrapper layout-content-navbar">
 
       <div class="layout-container-tables-project">
 
           <div class="container-initial-informations">
 
-            <div class="header-container">
-
-              <div class="name-and-photo-user">
-
-                <i class="bi bi-person-circle fs-1"></i>
-
-                <h2>User_name</h2>
-
-              </div>
-
-              <div class="menu-button">
-                
-              </div>
-
-            </div>
+            
+              <x-slot name="header">
+                  <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                      {{ __('Provedores') }}
+                  </h2>
+              </x-slot>
 
             <div class="initial-informations-title-and-subtitle">
 
@@ -97,11 +90,11 @@
 
           </div>
 
-          <div class="menssage-container" style='width: 100%;'>
+          <!-- <div class="menssage-container" style='width: 100%;'>
 
-              <x-mensage-box :title="'Sucesso!'" :text="'Operação bem sucedida!'" :type="'warning'" :widthDimension="'20%'"/>
+              <x-mensage-box :title="'Sucesso!'" :text="'Operação bem sucedida!'" :typeMensage="'s'" :widthDimension="'20%'"/>
 
-          </div>
+          </div> -->
 
           <!-- Content wrapper -->
           <div class="content-wrapper">
@@ -120,7 +113,7 @@
 
                     <div class="buttons-area">
 
-                      <button class="buttons-area-buttons"><i class="bi bi-file-earmark-bar-graph fs-4"></i></button>
+                      <a href='/provider/createDocument' class='buttons-area-buttons'><i class="bi bi-file-earmark-bar-graph fs-4"></i></a>
 
                       <button class="buttons-area-buttons"><i class="bi bi-plus fs-4"></i></button>
 
@@ -247,6 +240,9 @@
       </div>
 
     </div>
+
+    </x-app-layout>
+
     <script src="../assets/vendor/libs/jquery/jquery.js"></script>
     <script src="../assets/vendor/libs/popper/popper.js"></script>
     <script src="../assets/vendor/js/bootstrap.js"></script>

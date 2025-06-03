@@ -11,11 +11,10 @@ class loginResponseController extends Controller
     {
          $user = Auth::user();
 
-        // Exemplo: Redirecionar baseado no time
         if ($user->currentTeam && $user->hasRole('admin')) {
-            return redirect('/dashboard');
+            return redirect('/dasshboard');
         }
 
-        return redirect('/minha-template-customizada');
+        return redirect('/provider');
     }
 }

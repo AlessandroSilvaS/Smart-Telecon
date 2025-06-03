@@ -8,6 +8,14 @@
     flex-direction: column;
     align-items: center;
 }
+.container-initial-informations > .initial-informations-title-and-subtitle > .initial-information-title{
+    font-size: 46px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.container-initial-informations > .initial-informations-title-and-subtitle > .initial-informations-subtitle{
+    font-size: 23px;
+}
 .container-initial-informations > .header-container{
     width: 100%;
     display: flex;

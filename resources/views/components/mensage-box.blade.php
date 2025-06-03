@@ -2,22 +2,22 @@
 
     $bgColor = null;
 
-    if($type && $type != null){
+    if($typeMensage && $typeMensage != null){
 
-        switch ($type) {
-            case 'success':
+        switch ($typeMensage) {
+            case 's':
                 
                 $bgColor = '#28a745';
 
                 break;
             
-            case 'error':
+            case 'e':
 
                 $bgColor = '#dc3545';
 
                 break;
 
-            case 'warning':
+            case 'w':
 
                 $bgColor = '#ffc107';
     
