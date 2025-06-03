@@ -7,6 +7,12 @@ Route::get('/', [CardsController::class, 'index']);
 
 Route::get('/provider', function () {
     return view('presentation.provider');
+})->middleware(['auth'])->name('provider');
+
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/admin', function () {
+        return view('presentation.adm');
+    });
 });
 
 

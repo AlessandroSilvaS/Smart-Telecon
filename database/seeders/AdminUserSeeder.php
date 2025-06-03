@@ -4,25 +4,36 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+
 
 class AdminUserSeeder extends Seeder
 {
     public function run(): void
     {
-        $adm = User::create([
-            'name' => 'Adiministrador',
-            'email' => 'adminSmartTelecon@gmail.com',
-            'passeorld' => bcrypt('adm1234')
-        ]);
 
-        $team = $user->ownedTeams()->create([
+        //cria ou atualiza o user adimin
+
+        $admin = User::updateOrCreate(
+            ['email' => 'adminSmartTelecon@gmail.com'],
+            [
+                'name' => 'Administrador',
+                'password' => Hash::make('adm1234'),
+                'is_admin' => true, 
+            ]
+        );
+
+        ///cria o time do adiministrador
+
+        $team = $admin->ownedTeams()->create([
 
             'name' => 'Time adiministrador',
-            'persoanal_team' => true
+            'personal_team' => true
 
         ]);
 
-        $adm->teams()->updateExistingPivot($team->id, [
+        $admin->teams()->updateExistingPivot($team->id, [
             'role'=>'admin'
         ]);
     }
