@@ -76,7 +76,7 @@
 
               <div class="initial-information-title">
 
-                <h1>Bem vindo de Volta <span id="client_name">*Cliente*</span>!</h1>
+                <h1>Bem vindo(a), {{ explode(' ', Auth::user()->name)[0] }}!</h1>
 
               </div>
 
@@ -115,6 +115,8 @@
 
                       <a href='/provider/createDocument' class='buttons-area-buttons'><i class="bi bi-file-earmark-bar-graph fs-4"></i></a>
 
+                      <button class="buttons-area-buttons"><i class="bi bi-search"></i></button>
+
                       <button class="buttons-area-buttons"><i class="bi bi-plus fs-4"></i></button>
 
                     </div>
@@ -125,6 +127,7 @@
                       <tr>
                         <th>Nome</th>
                         <th>Velocidade</th>
+                        <th>Tipo</th>
                         <th>Preço</th>
                         <th>Ações</th>
                       </tr>
@@ -135,75 +138,7 @@
 
                         <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Angular Project</strong></td>
                         <td>mgb</td>
-                        <td>price</td>
-                        <td>
-                            <div class="dropdown">
-                              <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                <i class="bx bx-dots-vertical-rounded"></i>
-                              </button>
-                              <div class="dropdown-menu">
-                                <a class="dropdown-item" href="javascript:void(0);"
-                                  ><i class="bx bx-edit-alt me-1"></i> Edit</a
-                                >
-                                <a class="dropdown-item" href="javascript:void(0);"
-                                  ><i class="bx bx-trash me-1"></i> Delete</a
-                                >
-                              </div>
-                            </div>
-                          </td>
-
-                      </tr>
-
-                      <tr>
-
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Angular Project</strong></td>
-                        <td>mgb</td>
-                        <td>price</td>
-                        <td>
-                            <div class="dropdown">
-                              <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                <i class="bx bx-dots-vertical-rounded"></i>
-                              </button>
-                              <div class="dropdown-menu">
-                                <a class="dropdown-item" href="javascript:void(0);"
-                                  ><i class="bx bx-edit-alt me-1"></i> Edit</a
-                                >
-                                <a class="dropdown-item" href="javascript:void(0);"
-                                  ><i class="bx bx-trash me-1"></i> Delete</a
-                                >
-                              </div>
-                            </div>
-                          </td>
-
-                      </tr>
-
-                      <tr>
-
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Angular Project</strong></td>
-                        <td>mgb</td>
-                        <td>price</td>
-                        <td>
-                            <div class="dropdown">
-                              <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                <i class="bx bx-dots-vertical-rounded"></i>
-                              </button>
-                              <div class="dropdown-menu">
-                                <a class="dropdown-item" href="javascript:void(0);"
-                                  ><i class="bx bx-edit-alt me-1"></i> Edit</a
-                                >
-                                <a class="dropdown-item" href="javascript:void(0);"
-                                  ><i class="bx bx-trash me-1"></i> Delete</a
-                                >
-                              </div>
-                            </div>
-                          </td>
-
-                      </tr>
-
-                      <tr>
-
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Angular Project</strong></td>
-                        <td>mgb</td>
+                        <td>optica</td>
                         <td>price</td>
                         <td>
                             <div class="dropdown">

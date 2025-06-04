@@ -10,14 +10,14 @@ Route::get('/provider', function () {
 })->middleware(['auth'])->name('provider');
 
 Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('/admin', function () {
-        return view('presentation.adm');
+    Route::get('/administer', function () {
+        return view('presentation.administer');
     });
 });
 
 Route::get('/provider/createDocument', function(){
     return view('presentation.createDocument');
-});
+})->name('presentation.createDocument');
 
 
 Route::middleware([

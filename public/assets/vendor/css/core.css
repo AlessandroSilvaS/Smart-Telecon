@@ -3911,6 +3911,9 @@ textarea.form-control-lg {
   margin: 10px; 
   cursor: pointer;
   transition: background-color 0.5s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .buttons-area > .buttons-area-buttons:hover{
   background-color: #03c3ec;
