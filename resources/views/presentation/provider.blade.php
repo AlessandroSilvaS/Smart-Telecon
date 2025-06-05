@@ -60,13 +60,6 @@
 
           <div class="container-initial-informations">
 
-            
-              <x-slot name="header">
-                  <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                      {{ __('Provedores') }}
-                  </h2>
-              </x-slot>
-
             <div class="initial-informations-title-and-subtitle">
 
               <div class="initial-information-title">

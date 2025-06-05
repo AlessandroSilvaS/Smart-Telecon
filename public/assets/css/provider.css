@@ -1,9 +1,14 @@
 .container-initial-informations{
     width: 100%;
+    min-height: 60%;
+    background-image: url("/assets/img/project/provider.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 .container-initial-informations > .initial-informations-title-and-subtitle{
     width: 40%;
-    margin: 0 auto;
+    margin-left: 2.5%;
     display: flex;
     flex-direction: column;
     align-items: center;
