@@ -27,13 +27,13 @@
         <div class="informations-container">
 
             <h1 class="contract-title">
-                Smart Telecom | Time atual
+                Smart Telecom | Time atual {{ optional($team)->name }}
             </h1>
             
             <div class="main-informations">
-                <h2 class="name-provider">Provedor: *provider_name*</h2>
+                <h2 class="name-provider">Provedor: {{Auth::user()->name}}</h2>
 
-                <h2 class="cnpj-provider">CNPJ: provider_cnpj</h2>
+                <h2 class="cnpj-provider">CNPJ: {{Auth::user()->cnpj}}</h2>
             </div>
 
             <hr style="width: 90%; margin: 0 auto;">
@@ -54,7 +54,7 @@
 
             <h2 class="city-contract">Cidade: Pacajus</h2>
 
-            <h3 class="date">dd/mm/aa</h3>
+            <h3 class="date" id='date'>dd/mm/aa</h3>
 
         </div>
 
@@ -65,6 +65,22 @@
         <button class="create-contract">Gerar documento</button>
 
     </div>
-    
+    <script>
+
+        function formatData(data){
+
+            const formates = {year: 'numeric', mounth: 'long', day: 'numeric'}
+
+            return data.toLocaleDateString('pt-br', formates)
+
+        }
+
+        const dataCamp = document.getElementById('date')
+
+        const atualDate = new Date()
+
+        dataCamp.textContent = formatData(atualDate)
+
+    </script>
 </body>
 </html>

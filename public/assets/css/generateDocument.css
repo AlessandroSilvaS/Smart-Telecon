@@ -3,17 +3,21 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+    background-color: #e2e2e2;
+}
 .container-main-gd{
     width: 80%;
     margin: 0 auto;
     box-shadow: 2px 4px 6px 0px rgba(0, 0, 0, 0.4);
     margin-top: 20px;
     padding: 20px;
+    background-color: white;
 }
 .container-main-gd > .header-container{
-    width: 55%;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 .return-provider-link{
