@@ -44,7 +44,10 @@
 <script src="../assets/vendor/js/helpers.js"></script>
 
 <!-- Config -->
-<script src="../assets/js/config.js"></script>
+    <script src="../assets/vendor/js/menu.js"></script>
+    <script src="../assets/js/config.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
 
   </head>
@@ -364,9 +367,9 @@
                   </thead>
                   <tbody class="table-border-bottom-0">
 
-                    @foreach($plans as $plan):
+                    @foreach($plans as $plan)
 
-                      <tr onClick="openModal(1, {{$plan->id}})" style="cursor: pointer;">
+                      <tr onClick="openModal(1,'{{$plan->id}}')" style="cursor: pointer;">
                         <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$plan->name_plan}}</strong></td>
                         <td>{{$plan->speed_plan}} mgb</td>
                         <td>{{$plan->type_plan}}</td>
@@ -430,6 +433,7 @@
     </script>
 
     <script>
+    $(document).ready(function () {
       // Limpar os campos quando o modal for fechado
       $('#modalToggle').on('hidden.bs.modal', function () {
           document.getElementById('basic-default-name1').value = '';
@@ -437,6 +441,7 @@
           document.getElementById('basic-default-name3').value = '';
           document.getElementById('basic-default-name4').value = '';
           document.getElementById('confirm-delete').value = ';'
+      })
 });
 
     </script>
@@ -446,12 +451,7 @@
     <script src="../assets/vendor/js/bootstrap.js"></script>
     <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
 
-    <script src="../assets/vendor/js/menu.js"></script>
-    <!-- endbuild -->
-
-    <!-- Vendors JS -->
-
-    <!-- Main JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../assets/js/main.js"></script>
 
     <!-- Page JS -->

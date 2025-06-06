@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Laravel\Jetstream\Jetstream;
+use Illuminate\Support\Facades\Auth;
 use App\Models\UserPlan;
 
 class UserPlanController extends Controller
@@ -42,16 +43,14 @@ class UserPlanController extends Controller
     }
 
     $validated = $request->validate([
-        'id' => 'required|number',
         'name_plan' => 'required|string',
         'speed_plan' => 'required|string',
         'type_plan' => 'required|string',
         'price_plan' => 'required|string',
-        'created_at' => 'required|string',
-        'updated_at' => 'required|string',
+        
     ]);
 
-    $validated['user_id'] = auth()->id(); 
+    $validated['user_id'] = Auth::id(); 
     $validated['team_id'] = $request->user()->currentTeam->id; 
 
     UserPlan::create($validated);
@@ -73,7 +72,8 @@ class UserPlanController extends Controller
 
         $plan->delete();
 
-        return redirect()->back()->with('success', 'Plano removido com sucesso!');
+        return redirect()->route('provider')->with('success', 'Plano removido com sucesso!');
+
 
 
     }
