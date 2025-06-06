@@ -42,10 +42,13 @@ class UserPlanController extends Controller
     }
 
     $validated = $request->validate([
+        'id' => 'required|number',
         'name_plan' => 'required|string',
         'speed_plan' => 'required|string',
         'type_plan' => 'required|string',
         'price_plan' => 'required|string',
+        'created_at' => 'required|string',
+        'updated_at' => 'required|string',
     ]);
 
     $validated['user_id'] = auth()->id(); 
@@ -55,5 +58,24 @@ class UserPlanController extends Controller
 
     return redirect()->back()->with('success', 'Plano adicionado com sucesso!');
 }
+
+    public function removePlan($id){
+        
+        $user = Auth()->user();
+
+        if (! $user->hasTeamRole($user->currentTeam, 'owner')) {
+
+            abort(403, 'Você não tem permissão para realizar essa atividade. A equipe atual é: ' . $user->currentTeam->name);
+
+        }
+
+        $plan = UserPlan::where('team_id', $user->currentTeam->id)->findOrFail($id);
+
+        $plan->delete();
+
+        return redirect()->back()->with('success', 'Plano removido com sucesso!');
+
+
+    }
 
 }

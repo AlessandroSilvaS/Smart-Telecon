@@ -10,12 +10,15 @@ class UserPlan extends Model
     use HasFactory;
 
     protected $fillable = [
+        'id',
         'user_id',
         'team_id', 
         'name_plan',
         'speed_plan',
         'type_plan',
         'price_plan',
+        'created_at',
+        'updated_at',
     ];
 
     public function user()
