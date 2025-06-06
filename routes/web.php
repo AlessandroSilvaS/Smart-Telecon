@@ -13,6 +13,8 @@ Route::post('/provider/store', [UserPlanController::class, 'store'])->middleware
 
 Route::delete('/provider/removePlan/{id}',[UserPlanController::class, 'removePlan'])->middleware(['auth'])->name('provider.removePlan');
 
+Route::put('/provider/alterPlans/{id}', [UserPlanController::class, 'update'])->middleware(['auth'])->name('provider.update');
+
 Route::get('/plan/{id}/details', function ($id) {
     $planItem = App\Models\UserPlan::find($id);
     if ($planItem) {
@@ -29,9 +31,6 @@ Route::middleware(['auth', 'admin'])->group(function () {
 });
 
 Route::get('/provider/createDocument', [ShowDocumentController::class, 'showdocument'])->name('presentation.createDocument');
-
-
-
 
 
 Route::get('/testes', function(){

@@ -58,6 +58,34 @@ class UserPlanController extends Controller
     return redirect()->back()->with('success', 'Plano adicionado com sucesso!');
 }
 
+    public function update(Request $request, $id)
+{
+    $user = $request->user();
+
+    // Verifica se o usuário tem permissão
+    if (! $user->hasTeamRole($user->currentTeam, 'owner') &&
+        ! $user->hasTeamRole($user->currentTeam, 'member')) {
+        abort(403, 'Você não tem permissão para editar planos.');
+    }
+
+    // Validação dos dados recebidos
+    $validated = $request->validate([
+        'name_plan' => 'required|string',
+        'speed_plan' => 'required|string',
+        'type_plan' => 'required|string',
+        'price_plan' => 'required|string',
+    ]);
+
+    // Busca o plano pelo ID e pela equipe atual do usuário
+    $plan = UserPlan::where('team_id', $user->currentTeam->id)->findOrFail($id);
+
+    // Atualiza os campos do plano
+    $plan->update($validated);
+
+    return redirect()->back()->with('success', 'Plano atualizado com sucesso!');
+}
+
+
     public function removePlan($id){
         
         $user = Auth()->user();
