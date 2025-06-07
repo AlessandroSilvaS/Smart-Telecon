@@ -102,8 +102,6 @@ class UserPlanController extends Controller
 
         return redirect()->route('provider')->with('success', 'Plano removido com sucesso!');
 
-
-
     }
 
 }

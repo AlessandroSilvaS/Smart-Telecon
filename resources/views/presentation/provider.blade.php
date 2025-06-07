@@ -100,7 +100,7 @@
               <!-- Botões de ação -->
               <div class="buttons-area">
 
-                <a href="/provider/createDocument" class="buttons-area-buttons" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-file-earmark-bar-graph fs-4"></i></a>
+                <a class="buttons-area-buttons" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-file-earmark-bar-graph fs-4"></i></a>
 
                 <button class="buttons-area-buttons"><i class="bi bi-search"></i></button>
 
@@ -111,10 +111,6 @@
               <!--Modal Adicionar-->
 
                 <x-modalsProject.modal-add/>
-                
-              <!--Modal export documents-->
-
-                <x-modalsProject.modal-generateDocument/>
 
               <!-- Tabela -->
               <div class="table-responsive text-nowrap">
