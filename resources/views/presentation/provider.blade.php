@@ -100,17 +100,25 @@
               <!-- Botões de ação -->
               <div class="buttons-area">
 
-                <a class="buttons-area-buttons" data-bs-toggle="modal" data-bs-target="#basicModal"><i class="bi bi-file-earmark-bar-graph fs-4"></i></a>
+                <a class="buttons-area-buttons" data-bs-toggle="modal" data-bs-target="#modalTop"><i class="bi bi-file-earmark-bar-graph fs-4"></i></a>
 
-                <button class="buttons-area-buttons"><i class="bi bi-search"></i></button>
+                <button class="buttons-area-buttons" data-bs-toggle="modal" data-bs-target="#modalFilter"><i class="bi bi-search"></i></button>
 
                 <button class="buttons-area-buttons" type="button" data-bs-toggle="modal" data-bs-target="#modalCenter"><i class="bi bi-plus fs-4"></i></button>
 
               </div>
 
+              <!--Modal gerar documento-->
+
+              <x-modalsProject.generateDocument/>
+
               <!--Modal Adicionar-->
 
                 <x-modalsProject.modal-add/>
+
+              <!--Modal de Filtragem-->
+
+                <x-modalsProject.filter/>
 
               <!-- Tabela -->
               <div class="table-responsive text-nowrap">

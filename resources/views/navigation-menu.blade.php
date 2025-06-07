@@ -15,7 +15,7 @@
                 @if(Auth::user()->is_admin == false):
 
                     <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                        <x-nav-link href="{{ route('presentation.createDocument') }}" :active="request()->routeIs('presentation.createDocument')">
+                        <x-nav-link href="{{ route('presentation.detailsDocument') }}" :active="request()->routeIs('presentation.createDocument')">
                             {{ __('Gerar documento') }}
                         </x-nav-link>
                     </div>

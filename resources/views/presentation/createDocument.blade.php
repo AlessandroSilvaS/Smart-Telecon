@@ -27,7 +27,7 @@
         <div class="informations-container">
 
             <h1 class="contract-title">
-                Smart Telecom | Time atual {{ optional($team)->name }}
+                Smart Telecom | Telecomunicaçao e consultoria.
             </h1>
             
             <div class="main-informations">

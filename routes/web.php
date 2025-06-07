@@ -5,7 +5,19 @@ use App\Http\Controllers\CardsController;
 use App\Http\Controllers\ShowDocumentController;
 use App\Http\Controllers\UserPlanController;
 
+//root
+
 Route::get('/', [CardsController::class, 'index']);
+
+//adm
+
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/administer', function () {
+        return view('presentation.administer');
+    });
+});
+
+//provider
 
 Route::get('/provider', [UserPlanController::class, 'showTable'])->middleware(['auth'])->name('provider');
 
@@ -24,19 +36,15 @@ Route::get('/plan/{id}/details', function ($id) {
     }
 });
 
-Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('/administer', function () {
-        return view('presentation.administer');
-    });
-});
+//contract
 
-Route::get('/provider/createDocument', [ShowDocumentController::class, 'showdocument'])->name('presentation.createDocument');
+Route::get('/provider/detailsDocument', function(){
 
+    return view('presentation.detailsDocument');
 
-Route::get('/testes', function(){
-    return view('presentation.teste');
-});
+})->name('presentation.detailsDocument');
 
+Route::get('/provider/previewDocument', [ShowDocumentController::class, 'showdocument'])->name('presentation.previewDocument');
 
 Route::middleware([
     'auth:sanctum',
