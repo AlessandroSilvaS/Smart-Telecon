@@ -3,6 +3,8 @@
                         <div class="modal modal-top fade" id="modalTop" tabindex="-1">
                           <div class="modal-dialog">
                             <form class="modal-content">
+                                @csrf
+
                               <div class="modal-header">
                                 <h5 class="modal-title" id="modalTopTitle">Exportar tabela</h5>
                                 <button

@@ -4,20 +4,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CardsController;
 use App\Http\Controllers\ShowDocumentController;
 use App\Http\Controllers\UserPlanController;
+use App\Http\Controllers\dashboardController;
 
 //root
 
 Route::get('/', [CardsController::class, 'index']);
 
-//adm
-
-Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('/administer', function () {
-        return view('presentation.administer');
-    });
-});
-
 //provider
+
 
 Route::get('/provider', [UserPlanController::class, 'showTable'])->middleware(['auth'])->name('provider');
 
@@ -38,20 +32,19 @@ Route::get('/plan/{id}/details', function ($id) {
 
 //contract
 
-Route::get('/provider/detailsDocument', function(){
+Route::get('/provider/createDocument', [ShowDocumentController::class, 'showdocument'])->name('presentation.createDocument');
+Route::post('/provider/generateDocument', [ShowDocumentController::class, 'generate'])->name('presentation.generateDocument');
 
-    return view('presentation.detailsDocument');
-
-})->name('presentation.detailsDocument');
-
-Route::get('/provider/previewDocument', [ShowDocumentController::class, 'showdocument'])->name('presentation.previewDocument');
+Route::get('/teste', function(){
+    return view('presentation.teste');
+});
 
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard',[dashboardController::class, 'upDashboard'])->name('dashboard');
+
+    Route::get('/api/chart-plan-types', [dashboardController::class, 'chartPlanTypes']);
 });

@@ -1,16 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-br"
-  class="light-style layout-menu-fixed"
-  dir="ltr"
-  data-theme="theme-default"
-  data-assets-path="../assets/"
-  data-template="vertical-menu-template-free">
+<html lang="pt-br" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default" data-assets-path="../assets/" data-template="vertical-menu-template-free">
 
 <head>
-   
   <meta charset="utf-8" />
-  <meta name="viewport"
-    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
   <title>Smart | Seus planos</title>
   <meta name="description" content="" />
 
@@ -20,14 +13,11 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans&display=swap" rel="stylesheet" />
 
   <!-- Icons -->
   <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
-  <link rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
 
   <!-- Core CSS -->
   <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
@@ -44,26 +34,18 @@
   <script src="../assets/js/config.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-
   @if(request('id') && !\App\Models\UserPlan::find(request('id')))
-
     <script>
-
       history.pushState(null, null, window.location.pathname);
-
     </script>
-
   @endif
-
 </head>
 
 <body>
-
   <!-- Layout wrapper -->
   <x-app-layout>
     <div class="layout-wrapper layout-content-navbar">
       <div class="layout-container-tables-project">
-
         <!-- Título e subtítulo -->
         <div class="container-initial-informations">
           <div class="initial-informations-title-and-subtitle">
@@ -76,51 +58,93 @@
           </div>
         </div>
 
-        <!-- Modais de Edição e Exclusão -->
-       
-        @if(Auth::check() && request()->has('id'))
-          @php
+        <!-- Modal de edição (sempre presente no DOM) -->
+        @auth
+        <div class="modal fade" id="modalToggle" tabindex="-1" aria-labelledby="modalToggleLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="col-xxl">
+                <div class="card mb-4">
+                  <div class="card-header d-flex align-items-center justify-content-between">
+                    <h5 class="mb-0">Editar plano</h5>
+                  </div>
+                  <div class="card-body">
+                    <form method="POST" action="#" id="editPlanForm">
+                      @csrf
+                      @method('PUT')
 
-            $planItem = App\Models\UserPlan::find(request()->query('id'));
+                      <div class="mb-3">
+                        <input type="text" name="name_plan" id="basic-default-name" class="form-control" placeholder="Nome do plano" />
+                      </div>
+                      <div class="mb-3">
+                        <input type="text" name="speed_plan" id="basic-default-speed" class="form-control" placeholder="Velocidade (ex: 100 Mbps)" />
+                      </div>
+                      <div class="mb-3">
+                        <input type="text" name="type_plan" id="basic-default-type" class="form-control" placeholder="Tipo do plano" />
+                      </div>
+                      <div class="mb-3">
+                        <input type="text" name="price_plan" id="basic-default-price" class="form-control" placeholder="Preço do plano" />
+                      </div>
 
-          @endphp
+                      <div style="display: flex; gap: 10px;">
+                        <button type="submit" class="btn btn-primary" style="background-color: #04b0d3;">Salvar</button>
 
-            <x-modalsProject.edit :plan="$planItem" />
-            <x-modalsProject.remove :plan="$planItem" />
+                        <!-- Botão para abrir modal de remoção -->
+                        <button type="button" data-bs-target="#modalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal" class="btn btn-danger">
+                          Deletar registro
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-        @endif
+        <!-- Modal de remoção -->
+        <div class="modal fade" id="modalToggle2" tabindex="-1" aria-labelledby="modalToggleLabel2" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <form method="POST" id="deletePlanForm" action="#">
+                @csrf
+                @method('DELETE')
+
+                <div class="alert alert-danger m-3">Cuidado! - Você está certo do que faz?</div>
+                <p class="m-3" id="confirm-delete">Realmente quer apagar esse plano?</p>
+
+                <div class="m-3" style="display: flex; gap: 10px;">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                  <button type="submit" class="btn btn-danger">Deletar registro</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        @endauth
 
         <!-- Conteúdo principal -->
         <div class="content-wrapper">
           <div class="container-xxl flex-grow-1 container-p-y mb-5">
             <div class="card">
               <h5 class="card-header" style="font-size: 36px">Seus planos</h5>
-              <small class="m-2">Clique em uma linha da tabela para edita-la</small>
+              <small class="m-2">Clique em uma linha da tabela para editá-la</small>
 
               <!-- Botões de ação -->
               <div class="buttons-area">
-
-                <a class="buttons-area-buttons" data-bs-toggle="modal" data-bs-target="#modalTop"><i class="bi bi-file-earmark-bar-graph fs-4"></i></a>
-
-                <button class="buttons-area-buttons" data-bs-toggle="modal" data-bs-target="#modalFilter"><i class="bi bi-search"></i></button>
-
-                <button class="buttons-area-buttons" type="button" data-bs-toggle="modal" data-bs-target="#modalCenter"><i class="bi bi-plus fs-4"></i></button>
-
+                <a class="buttons-area-buttons" data-bs-toggle="modal" data-bs-target="#modalTop">
+                  <i class="bi bi-file-earmark-bar-graph fs-4"></i>
+                </a>
+                <button class="buttons-area-buttons" type="button" data-bs-toggle="modal" data-bs-target="#modalCenter">
+                  <i class="bi bi-plus fs-4"></i>
+                </button>
               </div>
 
-              <!--Modal gerar documento-->
+              <!-- Outros modais -->
+              <x-modalsProject.generateDocument />
+              <x-modalsProject.modal-add />
 
-              <x-modalsProject.generateDocument/>
-
-              <!--Modal Adicionar-->
-
-                <x-modalsProject.modal-add/>
-
-              <!--Modal de Filtragem-->
-
-                <x-modalsProject.filter/>
-
-              <!-- Tabela -->
+              <!-- Tabela de planos -->
               <div class="table-responsive text-nowrap">
                 <table class="table">
                   <thead class="table-dark">
@@ -130,19 +154,19 @@
                       <th>Tipo</th>
                       <th>Preço</th>
                       <th>Data de criação</th>
-                      <th>Última Edição</th>
+                      <th>Última edição</th>
                     </tr>
                   </thead>
                   <tbody class="table-border-bottom-0">
                     @foreach($plans as $plan)
-                    <tr onClick="openModal(1, {{ $plan->id }})" style="cursor: pointer;">
-                      <td><strong>{{ $plan->name_plan }}</strong></td>
-                      <td>{{ $plan->speed_plan }} mgb</td>
-                      <td>{{ $plan->type_plan }}</td>
-                      <td>{{ $plan->price_plan }}</td>
-                      <td>{{ $plan->created_at }}</td>
-                      <td>{{ $plan->updated_at }}</td>
-                    </tr>
+                      <tr onclick="openModal({{ $plan->id }})" style="cursor: pointer;">
+                        <td><strong>{{ $plan->name_plan }}</strong></td>
+                        <td>{{ $plan->speed_plan }} mgb</td>
+                        <td>{{ $plan->type_plan }}</td>
+                        <td>{{ $plan->price_plan }}</td>
+                        <td>{{ $plan->created_at }}</td>
+                        <td>{{ $plan->updated_at }}</td>
+                      </tr>
                     @endforeach
                   </tbody>
                 </table>
@@ -150,57 +174,41 @@
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </x-app-layout>
 
   <!-- Scripts de interação -->
   <script>
-    function openModal(indexModal, itemId) {
-      history.pushState(null, null, '?id=' + itemId);
+    let selectedPlanId = null;
 
-      fetch(`/plan/${itemId}/details`)
-        .then(response => response.json())
-        .then(data => {
+    function openModal(planId) {
+      selectedPlanId = planId;
+      const row = document.querySelector(`tr[onclick="openModal(${planId})"]`);
+      const cols = row.querySelectorAll('td');
 
-          document.getElementById('basic-default-name').value = data.name_plan;
-          document.getElementById('basic-default-speed').value = data.speed_plan;
-          document.getElementById('basic-default-type').value = data.type_plan;
-          document.getElementById('basic-default-price').value = data.price_plan;
+      // Atualizar formulário de edição
+      $('#basic-default-name').val(cols[0].innerText.trim());
+      $('#basic-default-speed').val(cols[1].innerText.trim().replace(' mgb', ''));
+      $('#basic-default-type').val(cols[2].innerText.trim());
+      $('#basic-default-price').val(cols[3].innerText.trim());
 
-          const modal1 = new bootstrap.Modal(document.getElementById('modalToggle'));
-          const modal2 = new bootstrap.Modal(document.getElementById('modalToggle2'));
+      $('#editPlanForm').attr('action', `/provider/alterPlans/${selectedPlanId}`); 
 
-          if (indexModal == 1) {
-            modal1.show();
-            modal2.hide();
-          } else if (indexModal == 2) {
-            modal2.show();
-            modal1.hide();
-          }
-        })
-        .catch(error => {
-          console.error('Erro ao carregar os dados do plano:', error);
-        });
+      $('#deletePlanForm').attr('action', `/provider/removePlan/${selectedPlanId}`);
+
+
+      // Abrir modal de edição
+      var editModal = new bootstrap.Modal(document.getElementById('modalToggle'));
+      editModal.show();
     }
-
-    $(document).ready(function () {
-      $('#modalToggle').on('hidden.bs.modal', function () {
-        document.getElementById('basic-default-name').value = '';
-        document.getElementById('basic-default-speed').value = '';
-        document.getElementById('basic-default-type').value = '';
-        document.getElementById('basic-default-price').value = '';
-      });
-    });
   </script>
 
-  <!-- Bibliotecas JS -->
-  <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+  <!-- Bootstrap JS -->
   <script src="../assets/vendor/libs/popper/popper.js"></script>
   <script src="../assets/vendor/js/bootstrap.js"></script>
   <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-  <script src="../assets/js/main.js"></script>
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
-
 </body>
+
 </html>

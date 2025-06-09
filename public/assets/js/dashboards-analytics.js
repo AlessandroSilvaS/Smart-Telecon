@@ -420,73 +420,59 @@
 
   // Order Statistics Chart
   // --------------------------------------------------------------------
-  const chartOrderStatistics = document.querySelector('#orderStatisticsChart'),
-    orderChartConfig = {
-      chart: {
-        height: 165,
-        width: 130,
-        type: 'donut'
-      },
-      labels: ['Electronic', 'Sports', 'Decor', 'Fashion'],
-      series: [85, 15, 50, 50],
-      colors: [config.colors.primary, config.colors.secondary, config.colors.info, config.colors.success],
-      stroke: {
-        width: 5,
-        colors: cardColor
-      },
-      dataLabels: {
-        enabled: false,
-        formatter: function (val, opt) {
-          return parseInt(val) + '%';
-        }
-      },
-      legend: {
-        show: false
-      },
-      grid: {
-        padding: {
-          top: 0,
-          bottom: 0,
-          right: 15
-        }
-      },
-      plotOptions: {
-        pie: {
-          donut: {
-            size: '75%',
-            labels: {
-              show: true,
-              value: {
-                fontSize: '1.5rem',
-                fontFamily: 'Public Sans',
-                color: headingColor,
-                offsetY: -15,
-                formatter: function (val) {
-                  return parseInt(val) + '%';
-                }
-              },
-              name: {
-                offsetY: 20,
-                fontFamily: 'Public Sans'
-              },
-              total: {
+ fetch('/api/chart-plan-types')
+  .then(response => response.json())
+  .then(data => {
+    const chartOrderStatistics = document.querySelector('#orderStatisticsChart');
+
+    if (chartOrderStatistics) {
+      const orderChartConfig = {
+        chart: {
+          height: 165,
+          width: 130,
+          type: 'donut'
+        },
+        labels: data.labels,
+        series: data.series,
+        colors: ['#696CFF', '#8592A3', '#03C3EC', '#71DD37'],
+        stroke: {
+          width: 5,
+          colors: '#fff'
+        },
+        dataLabels: {
+          enabled: false
+        },
+        legend: {
+          show: false
+        },
+        plotOptions: {
+          pie: {
+            donut: {
+              size: '75%',
+              labels: {
                 show: true,
-                fontSize: '0.8125rem',
-                color: axisColor,
-                label: 'Weekly',
-                formatter: function (w) {
-                  return '38%';
+                value: {
+                  formatter: val => `${parseInt(val)}%`
+                },
+                total: {
+                  show: true,
+                  label: 'Total',
+                  formatter: () => {
+                    return data.series.reduce((a, b) => a + b, 0);
+                  }
                 }
               }
             }
           }
         }
-      }
-    };
-  if (typeof chartOrderStatistics !== undefined && chartOrderStatistics !== null) {
-    const statisticsChart = new ApexCharts(chartOrderStatistics, orderChartConfig);
-    statisticsChart.render();
-  }
+      };
+
+      const statisticsChart = new ApexCharts(chartOrderStatistics, orderChartConfig);
+      statisticsChart.render();
+    }
+  })
+  .catch(error => console.error('Erro ao buscar dados do gráfico:', error));
+
 
   // Income Chart - Area chart
   // --------------------------------------------------------------------

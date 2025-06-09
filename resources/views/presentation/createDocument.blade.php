@@ -1,86 +1,74 @@
 <!DOCTYPE html>
 <html lang="pt_br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart | Gerar contrato</title>
 
-    <link rel="shortcut icon" href="https://smarttelecom.eng.br/new_template/assets/img/favicon.png" type="image/x-icon">
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
 
-    <link rel="stylesheet" href="{{ asset('assets/css/generateDocument.css') }}">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600&display=swap" rel="stylesheet" />
 
-    <!--Bootstrap icons-->
+  <!-- Core CSS -->
+  <link rel="stylesheet" href="../assets/vendor/css/core.css" />
+  <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" />
+  <link rel="stylesheet" href="../assets/css/demo.css" />
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <!-- Vendors CSS -->
+  <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
 
-    <title>Smart | Gerar Documento</title>
-    
+  <!-- Helpers -->
+  <script src="../assets/vendor/js/helpers.js"></script>
+  <script src="../assets/js/config.js"></script>
 </head>
 <body>
-    <a href="/provider" class="return-provider-link"><i class="bi bi-arrow-left"></i></a>
-
-    <div class="container-main-gd">
-        <div class="header-container">
-
-            <img src="https://smarttelecom.eng.br/new_template/assets/img/favicon.png" alt="">
+  <div class="form-container" style="width: 50%; margin: 0 auto; margin-top: 5%;">
+    <div class="col-xl">
+      <div class="card mb-4">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <h5 class="mb-0">Gerar Contrato</h5>
+          <small class="text-muted float-end">Informações obrigatórias</small>
         </div>
+        <div class="card-body">
 
-        <div class="informations-container">
+          <!-- FORMULÁRIO CORRETO -->
+          <form method="POST" action="{{ route('presentation.generateDocument') }}">
+            @csrf
 
-            <h1 class="contract-title">
-                Smart Telecom | Telecomunicaçao e consultoria.
-            </h1>
-            
-            <div class="main-informations">
-                <h2 class="name-provider">Provedor: {{Auth::user()->name}}</h2>
-
-                <h2 class="cnpj-provider">CNPJ: {{Auth::user()->cnpj}}</h2>
+            <div class="mb-3">
+              <label class="form-label" for="cnpj">CNPJ</label>
+              <input type="text" class="form-control" id="cnpj" name="cnpj" value="{{ Auth::user()->cnpj ?? '' }}" required />
             </div>
 
-            <hr style="width: 90%; margin: 0 auto;">
-
-            <h3 class="vige">Vigência:</h3>
-
-            <div class="container-data-vig">
-
-                <p>De: <span>Init</span> | Até: <span>Finish</span></p>
-
+            <div class="mb-3">
+              <label class="form-label" for="cidade">Cidade</label>
+              <input type="text" class="form-control" id="cidade" name="cidade" placeholder="Nome da cidade" required />
             </div>
 
+            <div class="mb-3">
+              <label class="form-label" for="valor">Valor do Contrato (R$)</label>
+              <input type="text" class="form-control" id="valor" name="valor" placeholder="000,00" required />
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label" for="vigencia_inicio">Vigência</label>
+              <div class="d-flex gap-2">
+                <input type="date" class="form-control" id="vigencia_inicio" name="vigencia_inicio" required />
+                <input type="date" class="form-control" id="vigencia_fim" name="vigencia_fim" required />
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Gerar Documento</button>
+            <button type="button" class="btn btn-primary" onClick="history.back()">Cancelar</button>
+          </form>
+
         </div>
-
-        <div class="second-informations">
-
-            <h2 class="value-contract">Valor do contrato: R$ 000,00</h2>
-
-            <h2 class="city-contract">Cidade: Pacajus</h2>
-
-            <h3 class="date" id='date'>dd/mm/aa</h3>
-
-        </div>
-
+      </div>
     </div>
-    
-    <div class="create-container">
-
-        <button class="create-contract">Gerar documento</button>
-
-    </div>
-    <script>
-
-        function formatData(data){
-
-            const formates = {year: 'numeric', mounth: 'long', day: 'numeric'}
-
-            return data.toLocaleDateString('pt-br', formates)
-
-        }
-
-        const dataCamp = document.getElementById('date')
-
-        const atualDate = new Date()
-
-        dataCamp.textContent = formatData(atualDate)
-
-    </script>
+  </div>
 </body>
 </html>

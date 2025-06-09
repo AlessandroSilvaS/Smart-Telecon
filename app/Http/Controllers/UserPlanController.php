@@ -29,6 +29,8 @@ class UserPlanController extends Controller
 
         $plans = $query->paginate(10);
 
+        $plan = $plans->first();
+
         return view('presentation.provider', compact('plans'));
 
     }

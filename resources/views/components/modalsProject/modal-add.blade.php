@@ -65,7 +65,7 @@
                                       aria-label="Default select example" 
                                       style="border: 0.5px solid #000000;">
 
-                                      <option selected>Open this select menu</option>
+                                      <option selected>Escolha o tipo de rede</option>
                                       <option value="Optíca">Optíca</option>
                                       <option value="HTC">Cabo Hfc</option>
                                       <option value="ADSL">Adsl</option>
