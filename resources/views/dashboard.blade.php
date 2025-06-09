@@ -253,7 +253,7 @@
                               <div id="expensesOfWeek"></div>
                             </div>
                             <div>
-                              <p class="mb-n1 mt-1">Expenses This Week</p>
+                              <p class="mb-n1 mt-1">Novos clientes na ultima temporada</p>
                               <small class="text-muted">$39 less than last week</small>
                             </div>
                           </div>

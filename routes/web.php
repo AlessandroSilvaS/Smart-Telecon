@@ -39,13 +39,18 @@ Route::get('/plan/{id}/details', function ($id) {
     }
 });
 
+Route::middleware(['auth', 'can:manageUsers,App\Models\User'])->prefix('admin')->name('admin.')->group(function () {
+    Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
+});
+
+
 //contract
 
 Route::get('/provider/createDocument', [ShowDocumentController::class, 'showdocument'])->name('presentation.createDocument');
 Route::post('/provider/generateDocument', [ShowDocumentController::class, 'generate'])->name('presentation.generateDocument');
 
 Route::get('/teste', function(){
-    return view('presentation.teste');
+    return view('teste');
 });
 
 Route::middleware([
