@@ -60,7 +60,7 @@
 
                   <!--first-->
 
-                    <div class="card firts-card" style="width: 20%; cursor: pointer;  transition: transform 0.3s;">
+                    <div class="card firts-card" style="width: 20%; cursor: pointer;  transition: transform 0.3s;" onclick="showTable('table-provider')">
                         <div class="card-body">
                           <div class="card-title d-flex align-items-start justify-content-between">
                             <div class="avatar flex-shrink-0">
@@ -75,7 +75,7 @@
 
                   <!--second-->
 
-                  <div class="card firts-card" style="width: 20%; width: 20%; cursor: pointer;  transition: transform 0.3s;">
+                  <div class="card firts-card" style="width: 20%; width: 20%; cursor: pointer;  transition: transform 0.3s;" onclick="showTable('table-plans')">
                         <div class="card-body">
                           <div class="card-title d-flex align-items-start justify-content-between">
                             <div class="avatar flex-shrink-0">
@@ -89,7 +89,7 @@
 
                   <!--tree-->
 
-                  <div class="card firts-card" style="width: 20%; width: 20%; cursor: pointer;  transition: transform 0.3s;">
+                  <div class="card firts-card" style="width: 20%; width: 20%; cursor: pointer;  transition: transform 0.3s;" onclick="showTable('table-contract')">
                         <div class="card-body">
                           <div class="card-title d-flex align-items-start justify-content-between">
                             <div class="avatar flex-shrink-0">
@@ -97,13 +97,13 @@
                             </div>
                           </div>
                           <span class="fw-semibold d-block mb-1">Contratos</span>
-                          <h3 class="card-title mb-2">{{$data['total_plans']}}</h3>
+                          <h3 class="card-title mb-2">{{$data['total_contracts']}}</h3>
                         </div>
                     </div>
 
                   <!--four-->
 
-                  <div class="card firts-card" style="width: 20%; width: 20%; cursor: pointer;  transition: transform 0.3s;">
+                  <div class="card" style="width: 20%; width: 20%;">
                         <div class="card-body">
                           <div class="card-title d-flex align-items-start justify-content-between">
                             <div class="avatar flex-shrink-0">
@@ -115,6 +115,41 @@
                         </div>
                     </div>
 
+                  </div>
+                </div>
+
+                <div class="table-container" id="table-container" style="margin: 10%; display: none;">
+                  <div class="card" style="width: 100%">
+                    <div class="d-flex align-items-end row">
+                      <div class="col-sm-7" style="width: 100%">
+                        <div class="card-body">
+
+                        @php
+
+                          $labelsProvider = ['Nome', 'Email', 'cnpj'];
+
+                          $labelsPlans = ['Nome', 'Velocidade', 'Tipo', 'Preço'];
+
+                          $labelsContract = ['cliente', 'CNPJ', 'cidade', 'valor', 'início', 'fim'];
+
+                          $values = $data['plans']
+                        @endphp
+
+                          <div class="table-provider" id="table-provider">
+                            <x-table.table-component :title="'Lista de provedores'" :labels="$labelsProvider" :values="$data['users']" functionClose="closeTable"/>
+                          </div>
+
+                          <div class="table-plans" id="table-plans">
+                            <x-table.table-component :title="'Lista de planos'" :labels="$labelsPlans" :values="$data['plans']" functionClose="closeTable"/>
+                          </div>
+
+                          <div class="table-cotracts" id="table-contract">
+                            <x-table.table-component :title="'Lista de contratos'" :labels="$labelsContract" :values="$data['contract']" functionClose="closeTable"/>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
@@ -152,8 +187,8 @@
                         <li class="d-flex mb-4 pb-1">
                           <div class="avatar flex-shrink-0 me-3">
                             <span class="avatar-initial rounded bg-label-primary"
-                              ><i class="bx bx-mobile-alt"></i
-                            ></span>
+                              ><i class="bi bi-eye"></i>
+                            </span>
                           </div>
                           <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                             <div class="me-2">
@@ -164,7 +199,7 @@
 
                         <li class="d-flex mb-4 pb-1">
                           <div class="avatar flex-shrink-0 me-3">
-                            <span class="avatar-initial rounded bg-label-success"><i class="bx bx-closet"></i></span>
+                            <span class="avatar-initial rounded bg-label-success"><i class="bi bi-ethernet"></i></span>
                           </div>
                           <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                             <div class="me-2">
@@ -175,7 +210,7 @@
                         
                         <li class="d-flex mb-4 pb-1">
                           <div class="avatar flex-shrink-0 me-3">
-                            <span class="avatar-initial rounded bg-label-info"><i class="bx bx-home-alt"></i></span>
+                            <span class="avatar-initial rounded bg-label-info"><i class="bi bi-rocket"></i></span>
                           </div>
                           <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                             <div class="me-2">
@@ -185,9 +220,9 @@
                         </li>
                         <li class="d-flex">
                           <div class="avatar flex-shrink-0 me-3">
-                            <span class="avatar-initial rounded bg-label-secondary"
-                              ><i class="bx bx-football"></i
-                            ></span>
+                            <span class="avatar-initial rounded bg-label-secondary">
+                              <i class="bi bi-telephone"></i>
+                            </span>
                           </div>
                           <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                             <div class="me-2">
@@ -265,8 +300,30 @@
     <!-- Page JS -->
     <script src="../assets/js/dashboards-analytics.js"></script>
 
-
-
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <script>
+
+      const tableContainer = document.getElementById('table-container')
+
+  function showTable(tableId) {
+
+    document.getElementById('table-provider').style.display = 'none';
+    document.getElementById('table-plans').style.display = 'none';
+    document.getElementById('table-contract').style.display = 'none';
+
+    tableContainer.style.display = 'block';
+
+    const table = document.getElementById(tableId);
+    if (table) {
+      table.style.display = 'block';
+    }
+  }
+
+  function closeTable(){
+    tableContainer.style.display = 'none'
+  }
+</script>
+
 </x-app-layout>

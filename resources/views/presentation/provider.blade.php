@@ -58,7 +58,7 @@
           </div>
         </div>
 
-        <!-- Modal de edição (sempre presente no DOM) -->
+        <!-- Modal de edição -->
         @auth
         <div class="modal fade" id="modalToggle" tabindex="-1" aria-labelledby="modalToggleLabel" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered">
@@ -132,7 +132,11 @@
 
               <!-- Botões de ação -->
               <div class="buttons-area">
-                <a class="buttons-area-buttons" data-bs-toggle="modal" data-bs-target="#modalTop">
+                <div class="m-3">
+                  <input type="text" id="searchInput" class="form-control" placeholder="Filtrar planos..." />
+                </div>
+
+                <a href="{{ route('export.pdf') }}" class="buttons-area-buttons" target="_blank">
                   <i class="bi bi-file-earmark-bar-graph fs-4"></i>
                 </a>
                 <button class="buttons-area-buttons" type="button" data-bs-toggle="modal" data-bs-target="#modalCenter">
@@ -204,6 +208,18 @@
       editModal.show();
     }
   </script>
+
+  <script>
+  $(document).ready(function () {
+    $("#searchInput").on("keyup", function () {
+      let value = $(this).val().toLowerCase();
+      $("table tbody tr").filter(function () {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+      });
+    });
+  });
+</script>
+
 
   <!-- Bootstrap JS -->
   <script src="../assets/vendor/libs/popper/popper.js"></script>

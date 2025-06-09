@@ -5,12 +5,21 @@ use App\Http\Controllers\CardsController;
 use App\Http\Controllers\ShowDocumentController;
 use App\Http\Controllers\UserPlanController;
 use App\Http\Controllers\dashboardController;
+use Barryvdh\DomPDF\Facade\Pdf;
+use App\Models\UserPlan;
 
 //root
 
 Route::get('/', [CardsController::class, 'index']);
 
 //provider
+
+Route::get('/export-table', function () {
+    $plansPdf = UserPlan::all();
+    $pdf = Pdf::loadView('presentation.pdfExport', compact('plansPdf'));
+
+    return $pdf->download('plansPdf.pdf');
+})->name('export.pdf');
 
 
 Route::get('/provider', [UserPlanController::class, 'showTable'])->middleware(['auth'])->name('provider');

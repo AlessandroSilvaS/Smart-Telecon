@@ -46,7 +46,14 @@ class dashboardController extends Controller
             'total_contracts' => $contracts->count(),
 
             'contract' => $contracts->map(function($contract){
-                return [];
+                return [
+                    'cliente', 
+                    'CNPJ' => $contract->cnpj, 
+                    'cidade' => $contract->cidade,
+                    'valor' => $contract->valor, 
+                    'início' => $contract->vigencia_inicio, 
+                    'fim' => $contract->vigencia_fim,
+                ];
             }),
 
         ];
