@@ -360,3 +360,222 @@ body{
     color: white;
     padding: 10px;
 }
+
+/* Responsividade para tablets e celulares */
+@media screen and (max-width: 1200px) {
+  .apresentation > .apresentation-informations {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .apresentation > .apresentation-informations > .text-informations,
+  .apresentation > .apresentation-informations > .apresentation-image-container {
+    width: 90%;
+    margin-top: 20px;
+  }
+
+  .header{
+    display:flex;
+  }
+
+  .service > .container-cards-service {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    justify-items: center;
+  }
+
+  .mission {
+    flex-direction: column;
+    height: auto;
+    gap: 30px;
+  }
+
+  .mission > .mission-container-image,
+  .mission > .mission-container-text {
+    width: 100%;
+    text-align: center;
+    align-items: center;
+  }
+
+  .mission > .mission-container-text > .mission-text-header {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+
+  .mission > .mission-container-text > .mission-text-informations > .text-informations {
+    font-size: 20px;
+    max-width: 90%;
+    line-height: 30px;
+  }
+
+  .mission > .mission-container-text > .container-financcee-button {
+    width: 80%;
+  }
+
+  .contact {
+    flex-direction: column;
+    height: auto;
+    padding: 20px 0;
+  }
+
+  .contact > .location-contact-container,
+  .contact > .social-content {
+    width: 90%;
+    margin-top: 20px;
+    align-items: center;
+  }
+
+  .contact > .location-contact-container > .location,
+  .contact > .location-contact-container > .contact-box {
+    width: 100%;
+    align-items: center;
+  }
+
+  .contact > .location-contact-container > .logo-and-name {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .apresentation > .header-container {
+    width: 95%;
+    left: 2.5%;
+  }
+
+  .header{
+    display:
+  }
+
+  .apresentation > .header-container > .header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .apresentation > .header-container > .header > #logo-image {
+    width: 40%;
+    margin: 0;
+  }
+
+  .apresentation > .header-container > .header > .menu-nav > .menu-nav-list {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .apresentation > .header-container > .header > .theme-and-contact {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .apresentation > .apresentation-informations > .text-informations > .container-list-and-contact > .apresentation-text-list > .apresentation-text-option {
+    min-width: unset;
+    font-size: 18px;
+  }
+
+  .service > .service-title {
+    font-size: 36px;
+    margin: 50px 20px;
+  }
+
+  .mission > .mission-container-text > .mission-text-header {
+    font-size: 28px;
+  }
+
+  .mission > .mission-container-text > .container-financcee-button > .finance-simulator {
+    font-size: 20px;
+    padding: 15px;
+  }
+
+  .footer-page {
+    font-size: 14px;
+  }
+}
+/* Esconde o botão do menu por padrão */
+.menu-toggle {
+  display: none;
+  font-size: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+}
+
+/* Responsivo: abaixo de 768px */
+@media screen and (max-width: 768px) {
+  /* Mostra o botão hambúrguer */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Esconde o menu padrão */
+  .menu-nav {
+    display: none;
+    background-color: #000; /* cor de fundo do menu aberto */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 20px 0;
+    z-index: 1000;
+  }
+
+  /* Exibe o menu quando aberto */
+  .menu-nav.open {
+    display: flex;
+  }
+
+  /* Alinha os itens verticalmente */
+  .menu-nav-list {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+}
+/* Esconde o botão hambúrguer em telas grandes */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Estilo base do menu em desktop */
+.menu-nav {
+  display: flex;
+}
+
+.menu-nav-list {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+/* Estilos para mobile */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    z-index: 1001;
+  }
+
+  .menu-nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: #222; 
+    padding: 1rem;
+    z-index: 1000;
+  }
+
+  .menu-nav.open {
+    display: flex;
+  }
+
+  .menu-nav-list {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}

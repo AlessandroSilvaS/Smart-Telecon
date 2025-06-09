@@ -44,6 +44,9 @@
 
                     </nav>
 
+                    <button id="menu-toggle" class="menu-toggle">&#9776;</button>
+
+
                     <div class="theme-and-contact">
 
                         <div class="contact-link-area">
@@ -153,12 +156,6 @@
 
                 </div>
 
-                <div class="container-financcee-button">
-
-                    <button class="finance-simulator">Simule um financiamento!</button>
-
-                </div>
-
             </div>
 
         </section>
@@ -224,6 +221,19 @@
         <footer class="footer-page">&copy  2025 Smart Telecom - Projetos e Consultoria. Todos os direitos reservados.</footer>
 
     </div>
+
+
+    <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.querySelector('.menu-nav');
+
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('open');
+    });
+  });
+</script>
+
 
 </body>
 </html>
