@@ -12,6 +12,11 @@ use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use Laravel\Fortify\Fortify;
+use Laravel\Fortify\Contracts\LoginResponse;
+use App\Http\Responses\CustomLoginResponse;
+use Laravel\Fortify\Contracts\RegisterResponse;
+use App\Http\Responses\CustomRegisterResponse;
+
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -32,7 +37,8 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::updateUserProfileInformationUsing(UpdateUserProfileInformation::class);
         Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
-        // app/Providers/FortifyServiceProvider.php
+        $this->app->singleton(LoginResponse::class, CustomLoginResponse::class);
+        $this->app->singleton(RegisterResponse::class, CustomRegisterResponse::class);
 
 Fortify::loginView(function () {
     if (request()->get('admin')) {
@@ -52,8 +58,6 @@ Fortify::loginView(function () {
         RateLimiter::for('two-factor', function (Request $request) {
             return Limit::perMinute(5)->by($request->session()->get('login.id'));
         });
-
-         $this->app->singleton(LoginResponse::class, CustomLoginResponse::class);
          
     }
 }
