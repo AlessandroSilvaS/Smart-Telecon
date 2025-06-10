@@ -146,7 +146,7 @@
 
               <!-- Outros modais -->
               <x-modalsProject.generateDocument />
-              <x-modalsProject.modal-add />
+              <x-modalsProject.modal-addPlan />
 
               <!-- Tabela de planos -->
               <div class="table-responsive text-nowrap">

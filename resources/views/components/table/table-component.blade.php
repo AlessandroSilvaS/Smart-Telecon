@@ -1,9 +1,20 @@
-@props(['title' => null, 'labels', 'values', 'functionClose' => null])
+@props(['title' => null, 'labels', 'values', 'whoAre' => null, 'functionClose' => null])
 
 <div style="width: 100%;">
     @if($title)
         <h3 class="mb-3">{{ $title }}</h3>
     @endif
+
+    @php
+        $modalPart = '';
+        if ($whoAre === 'providers') {
+            $modalPart = '#providerAdd';
+        } elseif ($whoAre === 'plans') {
+            $modalPart = '#plansAdd';
+        } elseif ($whoAre === 'contracts') {
+            $modalPart = '#contractsAdd';
+        }
+    @endphp
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
 
@@ -11,9 +22,24 @@
         <a href="{{ route('export.pdf') }}" class="btn btn-outline-secondary me-2" target="_blank" title="Exportar PDF">
             <i class="bi bi-file-earmark-bar-graph fs-4"></i>
         </a>
-        <button class="btn btn-outline-primary me-2" id="addRow" type="button" title="Adicionar linha">
-            <i class="bi bi-plus fs-4"></i>
-        </button>
+
+        @if(in_array($whoAre, ['plans', 'providers']))
+            <button class="btn btn-outline-primary me-2"
+                    id="addRow"
+                    data-bs-toggle="modal"
+                    data-bs-target="{{ $modalPart }}"
+                    type="button"
+                    title="Adicionar linha">
+                <i class="bi bi-plus fs-4"></i>
+            </button>
+
+            @if($whoAre === 'plans')
+                <x-modalsProject.modal-addPlan />
+            @elseif($whoAre === 'providers')
+                <x-modalsProject.modal-add-user />
+            @endif
+        @endif
+
         @if($functionClose)
             <button class="btn btn-outline-danger" type="button" onclick="{{ $functionClose }}()" title="Fechar">
                 <i class="bi bi-x fs-4"></i>
@@ -22,11 +48,11 @@
     </div>
 
     <div class="mb-3 mt-3">
-        <input type="text" id="searchInput" class="form-control" placeholder="Filtrar tabela..." />
+        <input type="text" class="form-control searchInput" data-table-id="myTable" placeholder="Filtrar tabela..." />
     </div>
 
     <div class="table-responsive text-nowrap">
-        <table class="table table-bordered" id="filterTable">
+        <table id="myTable" class="table table-bordered filter-table">
             <thead class="table-dark">
                 <tr>
                     @foreach ($labels as $label)
@@ -37,9 +63,15 @@
             </thead>
             <tbody class="table-border-bottom-0">
                 @forelse ($values as $row)
-                    <tr data-id="{{ $row['id'] ?? 0 }}">
-                        @foreach ($row as $cell)
-                            <td>{{ $cell }}</td>
+                    <tr data-id="{{ $row['id'] ?? 0 }}"
+                        data-route="{{ route($whoAre . '.destroy', ['id' => '__id__']) }}">
+                        @php $cellIndex = 0; @endphp
+                        @foreach ($row as $key => $cell)
+                            <td data-cell-index="{{ $cellIndex }}" data-cell-key="{{ $key }}">
+                                <span class="cell-text">{{ $cell }}</span>
+                                <input type="text" class="form-control edit-input" style="display:none;" value="{{ $cell }}">
+                            </td>
+                            @php $cellIndex++; @endphp
                         @endforeach
                         <td>
                             <button class="btn btn-sm btn-primary edit-row" title="Editar">
@@ -69,165 +101,130 @@
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-    const searchInput = document.getElementById('searchInput');
-    const table = document.getElementById('filterTable');
-    const tbody = table.tBodies[0];
-    const addRowBtn = document.getElementById('addRow');
-    const labels = @json($labels);
-
-    // Setup Axios with CSRF token
-    const tokenMeta = document.head.querySelector('meta[name="csrf-token"]');
-    if (tokenMeta) {
-        axios.defaults.headers.common['X-CSRF-TOKEN'] = tokenMeta.content;
-    } else {
-        console.error('CSRF token not found');
-    }
-    axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-
-    // Filter table rows by search input
-    searchInput.addEventListener('input', () => {
-        const filter = searchInput.value.toLowerCase();
-        Array.from(tbody.rows).forEach(row => {
-            const text = row.textContent.toLowerCase();
-            row.style.display = text.includes(filter) ? '' : 'none';
+document.addEventListener('DOMContentLoaded', function () {
+    // Filtro da tabela
+    const searchInputs = document.querySelectorAll('.searchInput');
+    searchInputs.forEach(searchInput => {
+        const tableId = searchInput.dataset.tableId;
+        const table = document.getElementById(tableId);
+        if (!table) return;
+        const rows = table.querySelectorAll('tbody tr');
+        searchInput.addEventListener('keyup', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            rows.forEach(row => {
+                let rowText = row.textContent.toLowerCase();
+                row.style.display = rowText.includes(searchTerm) ? '' : 'none';
+            });
         });
     });
 
-    // Add new row with default values
-    addRowBtn.addEventListener('click', () => {
-        const newRow = tbody.insertRow();
-        newRow.setAttribute('data-id', '0');
-
-        labels.forEach(label => {
-            const cell = newRow.insertCell();
-            cell.textContent = `Novo ${label}`;
-        });
-
-        const actionCell = newRow.insertCell();
-        actionCell.innerHTML = `
-            <button class="btn btn-sm btn-primary edit-row" title="Editar">
-                <i class="bi bi-pencil"></i>
-            </button>
-            <button class="btn btn-sm btn-success save-row" title="Salvar" style="display:none;">
-                <i class="bi bi-check-lg"></i>
-            </button>
-            <button class="btn btn-sm btn-secondary cancel-edit" title="Cancelar" style="display:none;">
-                <i class="bi bi-x-lg"></i>
-            </button>
-            <button class="btn btn-sm btn-danger delete-row" title="Excluir">
-                <i class="bi bi-trash"></i>
-            </button>
-        `;
-    });
-
-    // Event delegation for buttons inside tbody
-    tbody.addEventListener('click', e => {
+    // Manipulação dos botões na tabela
+    document.addEventListener('click', function (e) {
         const target = e.target.closest('button');
         if (!target) return;
-
         const row = target.closest('tr');
         if (!row) return;
 
+        // Editar linha
         if (target.classList.contains('edit-row')) {
-            startEditing(row);
-        } else if (target.classList.contains('save-row')) {
-            saveRow(row);
-        } else if (target.classList.contains('cancel-edit')) {
-            cancelEditing(row);
-        } else if (target.classList.contains('delete-row')) {
-            deleteRow(row);
+            row.querySelectorAll('.edit-row, .delete-row').forEach(btn => btn.style.display = 'none');
+            row.querySelectorAll('.save-row, .cancel-edit').forEach(btn => btn.style.display = '');
+
+            row.querySelectorAll('td').forEach(cell => {
+                const cellText = cell.querySelector('.cell-text');
+                const editInput = cell.querySelector('.edit-input');
+                if (cellText && editInput) {
+                    cellText.style.display = 'none';
+                    editInput.style.display = '';
+                }
+            });
+        }
+        // Cancelar edição
+        else if (target.classList.contains('cancel-edit')) {
+            row.querySelectorAll('.edit-row, .delete-row').forEach(btn => btn.style.display = '');
+            row.querySelectorAll('.save-row, .cancel-edit').forEach(btn => btn.style.display = 'none');
+
+            row.querySelectorAll('td').forEach(cell => {
+                const cellText = cell.querySelector('.cell-text');
+                const editInput = cell.querySelector('.edit-input');
+                if (cellText && editInput) {
+                    editInput.value = cellText.textContent.trim();
+                    cellText.style.display = '';
+                    editInput.style.display = 'none';
+                }
+            });
+        }
+        // Salvar edição
+        else if (target.classList.contains('save-row')) {
+            const id = row.getAttribute('data-id');
+            const whoAre = "{{ $whoAre }}";
+
+            let data = {};
+            row.querySelectorAll('td').forEach((cell, idx) => {
+                if (idx === row.children.length - 1) return; // ignorar coluna ações
+                const key = cell.getAttribute('data-cell-key');
+                const input = cell.querySelector('input.edit-input');
+                if (input) data[key] = input.value.trim();
+            });
+
+            let url = '';
+            switch(whoAre) {
+                case 'providers': url = `/dashboard/users/${id}`; break;
+                case 'plans': url = `/dashboard/plans/${id}`; break;
+                case 'contracts': url = `/dashboard/contracts/${id}`; break;
+                default:
+                    alert('Entidade inválida para atualização.');
+                    return;
+            }
+
+            axios.put(url, data, {
+                headers: {
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                }
+            }).then(response => {
+                row.querySelectorAll('td').forEach((cell, idx) => {
+                    if (idx === row.children.length - 1) return;
+                    const input = cell.querySelector('input.edit-input');
+                    const span = cell.querySelector('span.cell-text');
+                    if (input && span) {
+                        span.textContent = input.value.trim();
+                        span.style.display = '';
+                        input.style.display = 'none';
+                    }
+                });
+                row.querySelectorAll('.edit-row, .delete-row').forEach(btn => btn.style.display = '');
+                row.querySelectorAll('.save-row, .cancel-edit').forEach(btn => btn.style.display = 'none');
+                alert(response.data.success || 'Atualizado com sucesso!');
+            }).catch(error => {
+                console.error(error);
+                alert('Erro ao atualizar o item. Verifique os dados e tente novamente.');
+            });
+        }
+        // Excluir linha
+        else if (target.classList.contains('delete-row')) {
+            if (!window.confirmingDelete) {
+                window.confirmingDelete = true;
+                if (!confirm('Tem certeza que deseja excluir este item?')) {
+                    window.confirmingDelete = false;
+                    return;
+                }
+                const id = row.getAttribute('data-id');
+                const routeTemplate = row.getAttribute('data-route');
+                const url = routeTemplate.replace('__id__', id);
+                axios.delete(url, {
+                    headers: {
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                    }
+                }).then(response => {
+                    location.reload();
+                }).catch(error => {
+                    console.error(error);
+                    alert('Erro ao excluir o item.');
+                }).finally(() => {
+                    window.confirmingDelete = false;
+                });
+            }
         }
     });
-
-    function startEditing(row) {
-        const cells = Array.from(row.cells);
-        for (let i = 0; i < cells.length - 1; i++) {
-            const cell = cells[i];
-            const text = cell.textContent.trim();
-            cell.setAttribute('data-old-value', text);
-            cell.innerHTML = `<input type="text" class="form-control form-control-sm" value="${text.replace(/"/g, '&quot;')}" />`;
-        }
-        toggleActionButtons(row, true);
-    }
-
-    function saveRow(row) {
-        const inputs = row.querySelectorAll('input');
-        const data = {};
-        inputs.forEach((input, i) => {
-            row.cells[i].textContent = input.value.trim();
-            data[labels[i]] = input.value.trim();
-        });
-        toggleActionButtons(row, false);
-
-        const id = row.getAttribute('data-id');
-
-        if (id && id !== '0') {
-            // Atualiza plano existente
-            axios.put(`/provider/alterPlans/${id}`, data)
-                .then(response => {
-                    console.log('Plano atualizado:', response.data);
-                    // Atualizar o ID caso retorne
-                    if (response.data.id) {
-                        row.setAttribute('data-id', response.data.id);
-                    }
-                })
-                .catch(error => {
-                    console.error('Erro ao atualizar plano:', error);
-                    alert('Erro ao salvar o plano');
-                    cancelEditing(row);
-                });
-        } else {
-            // Cria novo plano
-            axios.post('/provider/store', data)
-                .then(response => {
-                    console.log('Plano criado:', response.data);
-                    if (response.data.id) {
-                        row.setAttribute('data-id', response.data.id);
-                    }
-                })
-                .catch(error => {
-                    console.error('Erro ao criar plano:', error);
-                    alert('Erro ao salvar o plano');
-                    cancelEditing(row);
-                });
-        }
-    }
-
-    function cancelEditing(row) {
-        const cells = Array.from(row.cells);
-        for (let i = 0; i < cells.length - 1; i++) {
-            const oldValue = cells[i].getAttribute('data-old-value');
-            cells[i].textContent = oldValue ?? '';
-            cells[i].removeAttribute('data-old-value');
-        }
-        toggleActionButtons(row, false);
-    }
-
-    function deleteRow(row) {
-        if (!confirm('Deseja realmente deletar esta linha?')) return;
-
-        const id = row.getAttribute('data-id');
-        if (id && id !== '0') {
-            axios.delete(`/provider/removePlan/${id}`)
-                .then(response => {
-                    console.log('Plano deletado:', response.data);
-                    row.remove();
-                })
-                .catch(error => {
-                    console.error('Erro ao deletar plano:', error);
-                    alert('Erro ao deletar o plano');
-                });
-        } else {
-            row.remove();
-        }
-    }
-
-    function toggleActionButtons(row, editing) {
-        row.querySelector('.edit-row').style.display = editing ? 'none' : 'inline-block';
-        row.querySelector('.delete-row').style.display = editing ? 'none' : 'inline-block';
-        row.querySelector('.save-row').style.display = editing ? 'inline-block' : 'none';
-        row.querySelector('.cancel-edit').style.display = editing ? 'inline-block' : 'none';
-    }
 });
 </script>

@@ -43,11 +43,23 @@ Route::middleware(['auth', 'can:manageUsers,App\Models\User'])->prefix('admin')-
     Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
 });
 
+// adm
+Route::delete('/providers/adm/{id}', [dashboardController::class, 'destroyUser'])->name('providers.destroy');
+Route::delete('/plans/adm/{id}',[dashboardController::class, 'destroyPlan'])->name('plans.destroy');
+Route::delete('/contracts/adm/{id}', [dashboardController::class, 'destroyContract'])->name('contracts.destroy');
+
+Route::post('/provider/adm/store', [dashboardController::class, 'storeProvider'])->name('provider.store');
+Route::post('/plans/store', [dashboardController::class, 'storePlan'])->name('plan.store');
+
+Route::put('/dashboard/users/{id}', [DashboardController::class, 'editUser'])->name('users.update');
+Route::put('/dashboard/plans/{id}', [DashboardController::class, 'editPlan'])->name('plans.update');
+Route::put('/dashboard/contracts/{id}', [DashboardController::class, 'editContract'])->name('contracts.update');
 
 //contract
 
 Route::get('/provider/createDocument', [ShowDocumentController::class, 'showdocument'])->name('presentation.createDocument');
 Route::post('/provider/generateDocument', [ShowDocumentController::class, 'generate'])->name('presentation.generateDocument');
+
 
 Route::get('/teste', function(){
     return view('teste');

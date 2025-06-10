@@ -17,8 +17,6 @@ class UserPlan extends Model
         'speed_plan',
         'type_plan',
         'price_plan',
-        'created_at',
-        'updated_at',
     ];
 
     public function user()

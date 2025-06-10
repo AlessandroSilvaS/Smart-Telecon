@@ -1,8 +1,8 @@
-<form action="{{ route('provider.store') }}" method="POST">
+<form action="{{ route('plan.store') }}" method="POST">
   @csrf
 
   <div class="col-lg-4 col-md-6">
-    <div class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
+    <div class="modal fade" id="plansAdd" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -94,16 +94,16 @@
 
     switch (type) {
       case "Óptica":
-        price = "99,90";
+        price = "99.90";
         break;
       case "HTC":
-        price = "89,90";
+        price = "89.90";
         break;
       case "ADSL":
-        price = "79,90";
+        price = "79.90";
         break;
       case "Satélite":
-        price = "149,90";
+        price = "149.90";
         break;
       default:
         price = "";

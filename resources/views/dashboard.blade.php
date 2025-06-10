@@ -13,6 +13,9 @@
 
     <title>Smart | administrador</title>
 
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+
     <!-- Icons. Uncomment required icon fonts -->
     <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
 
@@ -126,25 +129,26 @@
 
                         @php
 
-                          $labelsProvider = ['Nome', 'Email', 'cnpj'];
+                          $labelsProvider = ['id', 'Nome', 'Email', 'cnpj'];
 
-                          $labelsPlans = ['Nome', 'Velocidade', 'Tipo', 'Preço'];
+                          $labelsPlans = ['id', 'Nome', 'Velocidade', 'Tipo', 'Preço'];
 
                           $labelsContract = ['cliente', 'CNPJ', 'cidade', 'valor', 'início', 'fim'];
 
                           $values = $data['plans']
+
                         @endphp
 
                           <div class="table-provider" id="table-provider">
-                            <x-table.table-component :title="'Lista de provedores'" :labels="$labelsProvider" :values="$data['users']" functionClose="closeTable"/>
+                            <x-table.table-component :title="'Lista de provedores'" :labels="$labelsProvider" :values="$data['users']" :whoAre="'providers'" functionClose="closeTable"/>
                           </div>
 
                           <div class="table-plans" id="table-plans">
-                            <x-table.table-component :title="'Lista de planos'" :labels="$labelsPlans" :values="$data['plans']" functionClose="closeTable"/>
+                            <x-table.table-component :title="'Lista de planos'" :labels="$labelsPlans" :values="$data['plans']" :whoAre="'plans'" functionClose="closeTable"/>
                           </div>
 
                           <div class="table-cotracts" id="table-contract">
-                            <x-table.table-component :title="'Lista de contratos'" :labels="$labelsContract" :values="$data['contract']" functionClose="closeTable"/>
+                            <x-table.table-component :title="'Lista de contratos'" :labels="$labelsContract" :values="$data['contract']" :whoAre="'contracts'" functionClose="closeTable"/>
                           </div>
 
                         </div>

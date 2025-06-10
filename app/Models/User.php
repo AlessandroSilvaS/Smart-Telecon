@@ -33,7 +33,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'cnpj'
+        'cnpj',
+        'is_admin',
     ];
 
     /**
